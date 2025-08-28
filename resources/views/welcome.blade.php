@@ -16,6 +16,16 @@
         </style>
     </head>
     <body>
-        
+        <div>
+            <div>
+                <div>
+                    <img src="{{ asset('Img/Logo1-orderRae.png') }}" alt="Logo orden rae">
+                </div>
+                <form action="">
+                    <label for="">Busqueda</label>
+                    <input type="search" name="" id="" value="Buscar">
+                </form>
+            </div>
+        </div>
     </body>
 </html>
