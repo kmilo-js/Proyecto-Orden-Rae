@@ -1,0 +1,738 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 5px solid #f0e7db;
+    margin: 0; /* Ajusta según el alto de tu barra */
+}
+
+/* -------- BARRA SUPERIOR (HEADER) -------- */
+#barra_superior {
+    background-color: #efe7dd;
+    border: 3px solid #d4cdc3;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que esté encima de todo */
+}
+
+/* Contenedor de la barra superior */
+.cuadro_superior {
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+/* Estilo del cuadro inferior */
+.cuadro_inferior {
+    padding: 10px;
+}
+/* Logo principal */
+.logo_principal {
+    width: 100px;
+    border-radius: 30px;
+}
+/* Contenedor de los botones de carrito y perfil */
+.botones {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Tamaño de los íconos */
+.icono-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 30px;
+}
+
+/* Contenedor del menú del usuario */
+.menu-usuario {
+    position: relative;
+    display: inline-block;
+}
+
+/* Submenú oculto por defecto */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 45px; /* Ajusta según necesidad para que se vea al lado derecho */
+    background-color: #efe7dd;
+    min-width: 160px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    z-index: 100;
+}
+
+/* Enlaces dentro del submenú */
+.submenu a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #efe7dd;
+    transition: background-color 0.2s;
+}
+
+.submenu a:last-child {
+    border-bottom: none;
+}
+
+.submenu a:hover {
+    background-color: #f3ecec;
+}
+
+/* Mostrar el submenú al pasar el mouse */
+.menu-usuario:hover .submenu {
+    display: block;
+}
+/* Estilo del logo */
+.logo {
+    font-size: 30px;
+    margin: 5px;
+}
+
+/* Campo de búsqueda */
+.busqueda{
+    width: 500px;
+    border-radius: 20px;
+    padding: 10px; 
+    font-size: 17px;
+    margin: 0 15px;
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+
+/* -------- MENÚ DE NAVEGACIÓN -------- */
+.navegacion {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Enlaces del menú */
+.home ,.productos, .promociones, .contacto{
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 10px;
+    transition: color 0.4s ease;
+    color: #000;
+}
+
+/* Efecto hover en navegación */
+.home:hover, .productos:hover, .promociones:hover, .contacto:hover{
+    color: #764b36;
+}
+
+/*Boton rojo de cotización*/
+.boton_rojo{
+    background-color: #764b36;
+    color: #f8f8f8;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgb(201, 176, 123);
+    border: none;
+}
+
+/* Efecto hover para el botón rojo */
+.boton_rojo:hover {
+    background-color: #764b36;
+}
+
+/* Contenedor general centrado */
+.contenedor-diapositivas {
+  position: relative;
+  max-width: 800px;
+  margin: 60px auto 0 auto;
+  overflow: hidden;
+}
+
+/* Todas las imágenes del slideshow */
+.contenedor-diapositivas img {
+  display: block;
+  width: 100%;      /* O puedes usar 80% si quieres que no ocupe todo el ancho */
+  max-height: 500px;
+  object-fit: cover;
+  margin: 0 auto;   /* Centra la imagen horizontalmente */
+  border-radius: 10px;
+}
+
+/* Opcional: efecto de desvanecimiento */
+.desvanecer {
+  animation: fade 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: 0.4}
+  to {opacity: 1}
+}
+
+/* Flechas de navegación */
+.anterior, .siguiente {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #333;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.siguiente {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Puntos indicadores */
+.punto {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.punto:hover {
+  background-color: #717171;
+}
+
+
+/* Botones anterior y siguiente */
+.anterior, .siguiente {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.siguiente {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.anterior:hover, .siguiente:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Puntos indicadores */
+.punto {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.activo, .punto:hover {
+    background-color: #8f6049;
+}
+
+/* Animación de desvanecimiento */
+.desvanecer {
+    animation-name: desvanecer;
+    animation-duration: 1.5s;
+}
+
+@keyframes desvanecer {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+/* Línea divisoria */
+hr  {
+    margin: 10px 20px;
+    box-shadow: 1px 2px 10px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* -------- BOTONES PROMOCIONALES -------- */
+.contenedor-botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+/* Estilo general de un botón/caja */
+.boton{
+    display: flex;
+    align-items: center;
+    padding: 5px 20px 10px 10px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    background-color: #f3ecec;
+    height: 100px;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.2s, background-color 0.3s ease; ;
+}
+
+
+/* Efecto hover en los botones */
+.boton:hover {
+    transform: scale(1.03);
+    background-color: #c9c5c5;
+}
+
+/* Imagen dentro del botón */
+.boton img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+/* Título dentro del botón */
+.boton h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Párrafo descriptivo dentro del botón */
+.boton p {
+    margin: 0 5px;
+    font-size: 13px;
+}
+
+/* ---------- Galería de imágenes ---------- */
+.contenedor-imagenes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.contenedor-imagenes img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-wrap: wrap;
+    height: 300px;
+    transition: transform 0.2s, background-color 0.3s ease;
+}
+
+.contenedor-imagenes img:hover {
+    transform: scale(1.03);
+    background-color: #c9c5c5;
+}   
+
+.footer {
+  background-color: #f8f4f1;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  color: #6f4e37;
+}
+
+/* -------- PIE DE PÁGINA (FOOTER) -------- */
+.footer-contenedor {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-col {
+  flex: 1 1 220px;
+  margin: 20px;
+}
+
+.footer-col h3 {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.footer-col hr {
+  border: 0;
+  height: 1px;
+  background-color: #a7927d;
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #5a4031;
+}
+
+.footer-col a {
+  text-decoration: none;
+  color: #5a4031;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+/* === ICONOS INSTAGRAM & FACEBOOK === */
+.footer-redes {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.footer-redes img {
+  width: 32px;
+  height: 32px;
+  border-radius: 40%;
+  padding: 6px;
+  transition: transform 0.3s ease;
+}
+
+.footer-redes img:hover {
+  transform: scale(1.1);
+}
+
+/* === CONTENEDOR GENERAL DE PROMOCIONES === */
+.promociones-container {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* === TÍTULO PRINCIPAL DE LA SECCIÓN === */
+.titulo-promociones {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #764b36;
+}
+
+/* === DESCRIPCIÓN SECUNDARIA DE LA SECCIÓN === */
+.descripcion-promociones {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* === CONTENEDOR FLEX PARA LAS TARJETAS DE PROMOCIONES === */
+.tarjetas-promociones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* === TARJETA INDIVIDUAL DE PROMOCIÓN === */
+.tarjeta-promo {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+/* === EFECTO AL PASAR EL CURSOR POR UNA TARJETA === */
+.tarjeta-promo:hover {
+    transform: translateY(-5px);
+}
+
+/* === IMAGEN DENTRO DE CADA TARJETA === */
+.promo-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* === PRECIO ANTIGUO CON LÍNEA TACHADA === */
+.tachado {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* === PRECIO DESTACADO EN DESCUENTO === */
+.precio-descuento {
+    font-size: 18px;
+    color: #764b36;
+    font-weight: bold;
+}
+
+/* === BOTÓN DE COMPRA === */
+.boton-comprar {
+    margin-top: 10px;
+    background-color: #764b36;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* === EFECTO HOVER DEL BOTÓN DE COMPRA === */
+.boton-comprar:hover {
+    background-color: #8f6049;
+}
+
+
+
+/* === CONTENEDOR CENTRADO DE CONTACTO === */
+/* Esta sección define el contenedor principal que agrupa el formulario y la información de contacto. Está centrado y es responsive. */
+.contenedor-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+    padding: 60px 20px;
+    background-color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* === FORMULARIO DE CONTACTO === */
+/* Estilo general del formulario: ancho máximo, espaciado y estructura en columna. */
+.formulario-contacto {
+    flex: 1 1 400px;
+    max-width: 500px;
+}
+
+/* Título del formulario */
+.formulario-contacto h1 {
+    color: #764b36;
+    margin-bottom: 10px;
+}
+
+/* Párrafo de introducción */
+.formulario-contacto p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Estructura del formulario: todos los campos se alinean verticalmente con espacio entre ellos */
+.formulario-contacto form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Campos de entrada: nombre, correo, asunto */
+.formulario-contacto input,
+.formulario-contacto textarea {
+    padding: 12px;
+    border: 1px solid #000000c7;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Área de texto para el mensaje */
+.formulario-contacto textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Botón de envío del formulario */
+.formulario-contacto button {
+    padding: 12px;
+    background-color: #764b36;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Efecto hover para el botón */
+.formulario-contacto button:hover {
+    background-color: #8f6049;
+}
+
+/* === INFORMACIÓN DE CONTACTO === */
+/* Contenedor para mostrar ubicación y medios de contacto */
+.info-contacto {
+    flex: 1 1 400px;
+    max-width: 400px;
+}
+
+/* Títulos dentro de la sección de información */
+.info-contacto h2,
+.info-contacto h3 {
+    color: #764b36;
+}
+
+/* Lista de información: sin viñetas, buen espaciado */
+.info-contacto ul {
+    list-style: none;
+    padding-left: 0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* === CONTENEDOR PRINCIPAL DEL CARRITO === */
+.contenedor-carrito {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+/* === TÍTULO DEL CARRITO === */
+.contenedor-carrito h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #764b36;
+}
+
+/* === TABLA DE PRODUCTOS EN EL CARRITO === */
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.tabla-carrito th, .tabla-carrito td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* === IMAGEN DEL PRODUCTO EN EL CARRITO === */
+.img-producto {
+    width: 70px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* === INPUT DE CANTIDAD === */
+.input-cantidad {
+    width: 60px;
+    padding: 5px;
+    text-align: center;
+}
+
+/* === BOTÓN PARA ELIMINAR PRODUCTO === */
+.btn-eliminar {
+    background-color: #ddd0c9;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #8f6049;
+}
+
+/* === RESUMEN FINAL DE LA COMPRA === */
+.resumen-carrito {
+    text-align: right;
+}
+
+.resumen-carrito h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #000;
+}
+
+/* === BOTÓN DE FINALIZAR COMPRA === */
+.btn-comprar {
+    background-color: #764b36;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-comprar:hover {
+    background-color: #940000;
+}
+
+/* === PIE DE PÁGINA DEL SITIO === */
+.pie-contacto {
+    background-color: #8f6049;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+.busqueda {
+    width: 300px;
+}
+.contenedor-diapositivas {
+    border-radius: 20px;
+}
+}
+
+@media screen and (max-width: 768px) {
+.cuadro_superior {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.busqueda {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.navegacion {
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contenedor-diapositivas {
+    margin: 10px;
+    border-radius: 15px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.icono-carrito,
+.icono-usuario {
+    font-size: 30px;
+}
+
+.busqueda {
+    font-size: 14px;
+    padding: 8px;
+}
+
+.navegacion a {
+    font-size: 14px;
+}
+
+.boton_rojo {
+    padding: 4px 8px;
+    font-size: 14px;
+}
+}
