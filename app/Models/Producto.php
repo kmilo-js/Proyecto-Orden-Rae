@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $ID_PRODUCTO
  * @property string $Referencia_producto
- * @property string $Nombre_producto
  * @property string $Categoria_producto
  * @property string $Color_producto
  * @property int $Cantidad_producto
