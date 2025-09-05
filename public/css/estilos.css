@@ -150,8 +150,8 @@ body {
 /* Contenedor general centrado */
 .contenedor-diapositivas {
   position: relative;
-  max-width: 800px;
-  margin: 60px auto 0 auto;
+  max-width: 1000px;
+  margin: 200px auto auto;
   overflow: hidden;
 }
 
@@ -322,6 +322,7 @@ hr  {
 /* ---------- Galería de imágenes ---------- */
 .contenedor-imagenes{
     display: flex;
+    padding-top: 10px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
