@@ -1,0 +1,55 @@
+/* 🎨 Estilos personalizados para DataTables */
+
+/* General de botones */
+.dt-button {
+    background-color: #2563eb; 
+    border-radius: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease-in-out;
+    padding-left: 20px;
+}
+
+.dt-button:hover {
+    background-color: #1d4ed8 ; /* hover azul */
+}
+
+/* Colores por tipo */
+.buttons-copy {
+    background-color: #4b5563; /* gris */
+}
+.buttons-copy:hover {
+    background-color: #374151;
+}
+
+.buttons-csv {
+    background-color: #16a34a; /* verde */
+}
+.buttons-csv:hover {
+    background-color: #15803d;
+}
+
+.buttons-excel {
+    background-color: #059669; /* emerald */
+}
+.buttons-excel:hover {
+    background-color: #047857;
+}
+
+.buttons-pdf {
+    background-color: #dc2626; /* rojo */
+}
+.buttons-pdf:hover {
+    background-color: #b91c1c;
+}
+
+.buttons-print {
+    background-color: #4f46e5; /* indigo */
+}
+.buttons-print:hover {
+    background-color: #4338ca;
+}
+
+#producto_filter {
+    text-align: left !important; /* Alinea a la izquierda */
+    float: left !important; /* Asegura que flote a la izquierda */  
+}
