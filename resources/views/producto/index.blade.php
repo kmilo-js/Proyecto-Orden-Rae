@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
 
-<div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+<div class="py-5">
+    <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
         <!-- Título principal -->
         <h1 class="font-bold text-2xl m-4">Listado de Productos</h1>
             <!-- Contenedor de búsqueda -->
