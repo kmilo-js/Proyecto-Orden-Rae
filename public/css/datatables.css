@@ -3,14 +3,14 @@
 /* General de botones */
 .dt-button {
     background-color: #2563eb; 
-    border-radius: 20px;
+    border-radius: 20px !important;
+    padding-left: 20px !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     transition: background-color 0.2s ease-in-out;
-    padding-left: 20px;
 }
 
 .dt-button:hover {
-    background-color: #1d4ed8 ; /* hover azul */
+    background-color: #cdd4df !important; /* hover azul */
 }
 
 /* Colores por tipo */
@@ -49,7 +49,16 @@
     background-color: #4338ca;
 }
 
-#producto_filter {
-    text-align: left !important; /* Alinea a la izquierda */
-    float: left !important; /* Asegura que flote a la izquierda */  
+#producto_filter input {
+    border-radius: 50px !important;
+    cursor: pointer !important;
+    border: solid 1px black !important;
 }
+#producto_filter.dataTables_filter {
+    padding-right: 20px !important;
+}
+
+div.dt-buttons {
+    padding-left: 10px !important;
+}
+

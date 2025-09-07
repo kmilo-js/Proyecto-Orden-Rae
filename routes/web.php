@@ -13,6 +13,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('producto', ProductoController::class)
 ->names('producto');
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

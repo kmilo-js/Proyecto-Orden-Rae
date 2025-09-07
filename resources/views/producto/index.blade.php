@@ -1,21 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Productos') }}
         </h2>
     </x-slot>
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <!-- Título principal -->
-        <h1>Listado de Productos</h1>
-        <div>
-            <!-- Contenedor de búsqueda y filtro -->
-            <div class="bg-gray-100 rounded-lg">
-                <div class="pb-2 pt-2 pl-2 bg-white  flex items-center gap-2">
-                    <label for="table-search" class="sr-only">Search</label>
+        <h1 class="font-bold text-2xl m-4">Listado de Productos</h1>
+            <!-- Contenedor de búsqueda -->
+                <div class="p-2 bg-white">
+                    <label for="table-search"></label>
                     <!-- Ícono de búsqueda dentro del input -->
-                    <div class="relative flex">
+                    <div class="relative flex justify-between pr-4 pl-1">
                         <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -25,31 +23,18 @@
                         </div>
                         <!-- Input de búsqueda -->
                         <input
-                            type="text"
+                            type="search"
                             id="table-search"
-                            class="block pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Search for items"
+                            class="pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Buscar Producto"
                         >
-                        <!-- Botón desplegable -->
-                        <button
-                            id="dropdownRadioButton"
-                            data-dropdown-toggle="dropdownRadio"
-                            class="inline-flex items-center text-gray-800 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5  dark:border-gray-600 dark:hover:bg-gray-300 dark:hover:border-gray-600 "
-                            type="button"
-                        >
-                            <svg class="w-3 h-3 text-gray-500 dark:text-gray-400 me-3" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z"
-                                />
-                            </svg>
-                            Last 30 days
-                            <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m1 1 4 4 4-4" />
-                            </svg>
-                        </button>
+                        <!-- Botón para agregar nuevo producto -->
+                        <div>
+                            <a href="{{route('producto.create')}}"
+                                class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
+                                Nuevo
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- Tabla de productos -->
@@ -85,9 +70,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                </div>
             </div>
-        </div>
     </div>
 </div>
 
