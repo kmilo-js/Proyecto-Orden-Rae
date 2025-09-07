@@ -64,13 +64,13 @@
                                             <a
                                                 href="{{ route('login') }}"
                                             >
-                                                Log in
+                                                Iniciar sesión
                                             </a>
                                     @if (Route::has('register'))
                                             <a
                                                 href="{{ route('register') }}"
                                             >
-                                                Register
+                                                Registrarse
                                             </a>
                                         @endif
                                     @endauth
