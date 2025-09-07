@@ -30,7 +30,7 @@
                         >
                         <!-- Botón para agregar nuevo producto -->
                         <div>
-                            <a href="{{route('producto.create')}}"
+                            <a href="{{route('inventario.create')}}"
                                 class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
                                 Nuevo
                             </a>
