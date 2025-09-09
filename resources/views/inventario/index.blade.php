@@ -7,12 +7,12 @@
 
 <div class="py-5">
     <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
-             <!-- Botón para agregar nuevo producto -->
+            <!-- Botón para agregar nuevo producto -->
                 <div class="flex justify-end p-2 mr-4"> 
                             <!--Url de la ruta para inventario.create-->                   
                         <a href="{{route('inventario.create')}}"
                             class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
-                            Nuevo
+                            Nuevo Producto
                         </a>
                     </div>
                 </div>

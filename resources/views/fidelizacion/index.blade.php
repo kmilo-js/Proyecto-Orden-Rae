@@ -10,9 +10,9 @@
                         <!-- Botón para agregar nuevo producto -->
                         <div class="flex justify-end p-2 mr-4">
                             <!--Url de la ruta para inventario.create-->
-                            <a href="{{route('inventario.create')}}"
+                            <a href="{{route('fidelizacion.create')}}"
                                 class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
-                                Nuevo
+                                Agregar nuevo cliente
                             </a>
                         </div>
                 <!-- Tabla de productos -->

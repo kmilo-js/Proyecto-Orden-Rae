@@ -38,13 +38,15 @@
                                 <td>{{$producto->Color_producto}}</td>
                                 <td>{{$producto->Cantidad_producto}}</td>
                                 <td>{{$producto->Created_at}}</td>
-                                <td class="px-6 py-4">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                                <td class="px-6 py-4 gap-2 flex justify-center">
+                                    <a href="{{ route('producto.edit', $producto->ID_PRODUCTO) }}"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
-                                    </button>
-                                    <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-md">
+                                    </a>
+                                    <a  href="{{ route('producto.destroy', $producto->ID_PRODUCTO) }}"
+                                        class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-md">  
                                         Eliminar
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

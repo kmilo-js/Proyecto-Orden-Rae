@@ -30,7 +30,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'Referencia_producto' => 'required|max:100',
+        'Nombre_producto' => 'required',
+        'Categoria_producto' => 'required',
+        'Color_producto' => 'required',
+        'Cantidad_producto' => 'required|integer',
+        'usuarios_id' => 'required|integer',
+        'inventario_id' => 'required|integer',
+]);
+        Producto::create($request->all());
+        return redirect()->route('producto.index')
+        ->with('Éxito', 'Producto creado exitosamente.');
     }
 
     /**
@@ -38,7 +49,7 @@ class ProductoController extends Controller
      */
     public function show(Producto $producto)
     {
-        //
+        return view('producto.show', compact('producto'));
     }
 
     /**
@@ -46,7 +57,7 @@ class ProductoController extends Controller
      */
     public function edit(Producto $producto)
     {
-        //
+        return view('producto.edit', compact('producto'));
     }
 
     /**
@@ -54,7 +65,15 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        $request->validate([
+        'Referencia_producto' => 'required|max:100',
+        'Categoria_producto' => 'required',
+        'Color_producto' => 'required',
+        'Cantidad_producto' => 'required|integer',
+    ]);
+        $producto->update($request->all());
+        return redirect()->route('producto.index')
+        ->with('Éxito', 'Producto se actualizado exitosamente.');
     }
 
     /**
@@ -62,6 +81,8 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('producto.index')
+        ->with('Éxito', 'Producto se elimino exitosamente.');
     }
 }
