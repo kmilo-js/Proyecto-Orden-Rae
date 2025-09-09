@@ -7,37 +7,14 @@
 
 <div class="py-5">
     <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
-        <!-- Título principal -->
-        <h1 class="font-bold text-2xl m-4">Fidelicación de clientes</h1>
-            <!-- Contenedor de búsqueda -->
-                <div class="p-2 bg-white">
-                    <label for="table-search"></label>
-                    <!-- Ícono de búsqueda dentro del input -->
-                    <div class="relative flex justify-between pr-4 pl-1">
-                        <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                            </svg>
-                        </div>
-                        <!-- Input de búsqueda -->
-                        <input
-                            type="search"
-                            id="table-search"
-                            class="pt-2 ps-10 text-sm border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-500  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Buscar Producto"
-                        >
                         <!-- Botón para agregar nuevo producto -->
-                        <div>
+                        <div class="flex justify-end p-2 mr-4">
                             <!--Url de la ruta para inventario.create-->
                             <a href="{{route('inventario.create')}}"
                                 class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
                                 Nuevo
                             </a>
                         </div>
-                    </div>
-                </div>
                 <!-- Tabla de productos -->
                 <div>
                 <table id="producto" class="w-full text-base border text-center text-gray-500 dark:text-gray-700">
