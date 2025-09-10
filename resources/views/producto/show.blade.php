@@ -4,10 +4,11 @@
             {{ __('Detalle del Producto') }}
         </h2>
     </x-slot>
-    <div class="p-6">
-        <p><strong>Referencia:</strong> {{ $producto->Referencia_producto }}</p>
-        <p><strong>Categoría:</strong> {{ $producto->Categoria_producto }}</p>
-        <p><strong>Color:</strong> {{ $producto->Color_producto }}</p>
-        <p><strong>Cantidad:</strong> {{ $producto->Cantidad_producto }}</p>
-    </div>
+<p><strong>ID:</strong> {{ $producto->ID_PRODUCTO }}</p>
+<p><strong>Referencia:</strong> {{ $producto->Referencia_producto }}</p>
+<p><strong>Categoría:</strong> {{ $producto->Categoria_producto }}</p>
+<p><strong>Color:</strong> {{ $producto->Color_producto }}</p>
+<p><strong>Cantidad:</strong> {{ $producto->Cantidad_producto }}</p>
+<p><strong>Fecha de Creación:</strong> {{ $producto->Created_at }}</p>
+<a href="{{ route('producto.index') }}">Volver</a>
 </x-app-layout>

@@ -5,9 +5,19 @@
         </h2>
     </x-slot>
 
+    <!-- 🚨 ALERTA DE ÉXITO -->
+    @if(session('success'))
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
+            <div class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center" role="alert">
+                <span class="font-semibold">{{ session('success') }}</span>
+                <button onclick="this.parentElement.remove();" class="text-red-700 font-bold px-2">✕</button>
+            </div>
+        </div>
+    @endif
+
 <div class="py-5">
     <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
-             <!-- Botón para agregar nuevo producto -->
+            <!-- Botón para agregar nuevo producto -->
                 <div class="flex justify-end p-2 mr-4" >                    
                         <!--Url de la ruta para inventario.create-->                        
                         <a href="{{route('producto.create')}}"
@@ -43,10 +53,12 @@
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
                                     </a>
-                                    <a  href="{{ route('producto.destroy', $producto->ID_PRODUCTO) }}"
-                                        class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-md">  
-                                        Eliminar
-                                    </a>
+                                    <form action="{{ route('producto.destroy', $producto->ID_PRODUCTO) }}" method="POST"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

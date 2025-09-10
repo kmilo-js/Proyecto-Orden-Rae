@@ -4,77 +4,53 @@
             {{ __('Crear Producto') }}
         </h2>
     </x-slot>
+        <!-- 🚨 ALERTA DE ÉXITO -->
+    @if(session('success'))
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center" role="alert">
+                <span class="font-semibold">{{ session('success') }}</span>
+                <button onclick="this.parentElement.remove();" class="text-green-700 font-bold px-2">✕</button>
+            </div>
+        </div>
+    @endif
 
-<form action="" class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-10 border border-gray-400 p-8 rounded-lg ">
-    <div class="flex gap-x-6 mb-6">
-        <div class="w-full relative">
-            <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-                Referencia del producto
-                <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-                </svg>
-            </label>
-            <input type="text" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Referencia" required>
-        </div>
-        <div class="w-full relative">
-            <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-                Color
-                <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-                </svg>
-            </label>
-            <input type="text" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Color" required>
-        </div>
+    <div class="p-1 flex justify-center border border-transparent rounded-xl max-w-lg mt-10 mx-auto bg-white shadow-xl transform hover:scale-102 transition-all duration-300 ease-in-out">
+        <form action="{{ route('producto.store') }}" method="POST" class="gap-6 w-full bg-[#efe7dd] p-8 rounded-lg shadow-lg">
+            @csrf
+
+            <div class="space-y-6">
+                <!-- Referencia -->
+                <div>
+                    <label for="referencia" class="block text-[#764b36] text-lg font-semibold">Referencia:</label>
+                    <input id="referencia" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Referencia_producto">
+                </div>
+
+                <!-- Categoria -->
+                <div>
+                    <label for="categoria" class="block text-[#764b36] text-lg font-semibold">Categoría:</label>
+                    <input id="categoria" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Categoria_producto">
+                </div>
+
+                <!-- Color -->
+                <div>
+                    <label for="color" class="block text-[#764b36] text-lg font-semibold">Color:</label>
+                    <input id="color" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Color_producto">
+                </div>
+
+                <!-- Cantidad -->
+                <div>
+                    <label for="cantidad" class="block text-[#764b36] text-lg font-semibold">Cantidad:</label>
+                    <input id="cantidad" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="number" name="Cantidad_producto">
+                </div>
+
+                <!-- Botón de guardar -->
+                <div class="flex justify-center mt-8">
+                    <button type="submit" class="bg-[#764b36] text-white font-semibold py-3 px-8 rounded-lg transform hover:scale-105 hover:bg-[#5a3625] transition-all duration-200 ease-in-out shadow-md">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </form>
+
     </div>
-    <div class="relative mb-6">
-        <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-            Categoria
-            <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-            </svg>
-        </label>
-        <input type="email" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Categoria" required>
-    </div>
-    <div class="flex gap-x-6 mb-6">
-        <div class="w-full relative">
-            <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-                Cantidad
-                <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-                </svg>
-            </label>
-            <input type="number" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Numero" required>
-        </div>
-        <div class="w-full relative">
-            <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-                Fecha de Creacion
-                <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-                </svg>
-            </label>
-            <input type="date" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Fecha" required>
-        </div>
-    </div>
-    <div class="relative mb-6">
-        <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-            Correo electronico
-            <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-            </svg>
-        </label>
-        <input type="email" class="block w-full h-11 px-5 py-2.5 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 rounded-full placeholder-gray-400 focus:outline-none" placeholder="Correo electronico" required>
-    </div>
-    <div class="relative mb-6">
-        <label class="flex items-center mb-2 text-gray-600 text-sm font-medium">
-            Subir Imagen
-            <svg width="7" height="7" class="ml-1" viewBox="0 0 7 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.11222 6.04545L3.20668 3.94744L1.43679 5.08594L0.894886 4.14134L2.77415 3.18182L0.894886 2.2223L1.43679 1.2777L3.20668 2.41619L3.11222 0.318182H4.19105L4.09659 2.41619L5.86648 1.2777L6.40838 2.2223L4.52912 3.18182L6.40838 4.14134L5.86648 5.08594L4.09659 3.94744L4.19105 6.04545H3.11222Z" fill="#EF4444" />
-            </svg>
-        </label>
-        <input type="file" multiple class="block w-full h-11 p-1 bg-white leading-7 text-base font-normal shadow-xs text-gray-900 bg-transparent border border-gray-300 placeholder-gray-400 focus:outline-none" placeholder="Correo electronico" required>
-    </div>
-    <button class="w-52 h-12 shadow-sm rounded-full bg-indigo-600 hover:bg-indigo-800 transition-all duration-700 text-white text-base font-semibold leading-7">
-        Registrar
-    </button>
-</form>
 </x-app-layout>

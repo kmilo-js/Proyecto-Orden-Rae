@@ -35,7 +35,7 @@ class Producto extends Model
 {
 	protected $table = 'producto';
 	protected $primaryKey = 'ID_PRODUCTO';
-	public $timestamps = false;
+	public $timestamps = true;
 
 	protected $casts = [
 		'Cantidad_producto' => 'int',
@@ -47,12 +47,10 @@ class Producto extends Model
 
 	protected $fillable = [
 		'Referencia_producto',
-		'Nombre_producto',
 		'Categoria_producto',
 		'Color_producto',
 		'Cantidad_producto',
 		'Created_at',
-		'Updated_at',
 		'usuarios_id',
 		'inventario_id'
 	];

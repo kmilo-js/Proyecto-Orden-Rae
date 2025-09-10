@@ -32,16 +32,13 @@ class ProductoController extends Controller
     {
         $request->validate([
         'Referencia_producto' => 'required|max:100',
-        'Nombre_producto' => 'required',
         'Categoria_producto' => 'required',
         'Color_producto' => 'required',
         'Cantidad_producto' => 'required|integer',
-        'usuarios_id' => 'required|integer',
-        'inventario_id' => 'required|integer',
-]);
+]);   
         Producto::create($request->all());
         return redirect()->route('producto.index')
-        ->with('Éxito', 'Producto creado exitosamente.');
+        ->with('success', 'Producto creado exitosamente.');
     }
 
     /**
@@ -73,7 +70,7 @@ class ProductoController extends Controller
     ]);
         $producto->update($request->all());
         return redirect()->route('producto.index')
-        ->with('Éxito', 'Producto se actualizado exitosamente.');
+        ->with('success', 'Producto se actualizado exitosamente.');
     }
 
     /**
@@ -83,6 +80,6 @@ class ProductoController extends Controller
     {
         $producto->delete();
         return redirect()->route('producto.index')
-        ->with('Éxito', 'Producto se elimino exitosamente.');
+        ->with('success', 'Producto eliminado exitosamente');
     }
 }
