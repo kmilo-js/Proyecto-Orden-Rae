@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Inventario;
 
 use App\Http\Controllers\Controller;
 use App\Models\Inventario;
+use App\Models\Usuario;
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreInventarioRequest;
+use App\Http\Requests\UpdateInventarioRequest;
 
 class InventarioController extends Controller
 {
@@ -13,7 +17,9 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventario = Inventario::all();
+        $inventario = Inventario::with(['Producto','Usuario'])
+        ->orderBy('ID_INVENTARIO')
+        ->get();
         return view('inventario.index', compact('inventario'));
     }
 
@@ -22,7 +28,11 @@ class InventarioController extends Controller
      */
     public function create()
     {
-        return view('inventario.create');
+        return view('inventario.create',[
+            'inventario' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+            'producto' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+        ]);
     }
 
     /**
@@ -30,15 +40,17 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Inventario::create($request->validated());
+        return redirect()->route('inventario.index')
+        ->with('success', 'Producto creado exitosamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Inventario $inventario)
+    public function show(StoreInventarioRequest $request)
     {
-        //
+        return view('inventario.show', compact('inventario'));
     }
 
     /**
@@ -46,15 +58,22 @@ class InventarioController extends Controller
      */
     public function edit(Inventario $inventario)
     {
-        //
+        return view('inventario.edit',[
+            'inventario' => $inventario,
+            'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+            'producto' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Inventario $inventario)
+    public function update(UpdateInventarioRequest $request, Inventario $inventario)
     {
-        //
+        $inventario->update($request->validated());
+        return redirect()->route('inventario.index')
+        ->with('success', 'Producto se actualizado');
     }
 
     /**
@@ -62,6 +81,12 @@ class InventarioController extends Controller
      */
     public function destroy(Inventario $inventario)
     {
-        //
+        try {
+            $inventario->delete();
+            return back()->with('success', 'Producto eliminado exitosamente'); 
+            } 
+        catch (\Throwable $inventario){
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados');
+            }
     }
 }

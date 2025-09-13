@@ -37,6 +37,9 @@ class Producto extends Model
 	protected $primaryKey = 'ID_PRODUCTO';
 	public $timestamps = true;
 
+	const CREATED_AT = 'Created_at';
+    const UPDATED_AT = 'Updated_at';
+
 	protected $casts = [
 		'Cantidad_producto' => 'int',
 		'Created_at' => 'datetime',
@@ -62,7 +65,7 @@ class Producto extends Model
 
 	public function inventario()
 	{
-		return $this->belongsTo(Inventario::class);
+		return $this->belongsTo(Inventario::class, 'inventario_id');
 	}
 
 	public function pedidos()

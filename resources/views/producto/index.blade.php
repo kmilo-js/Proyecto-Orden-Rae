@@ -5,16 +5,6 @@
         </h2>
     </x-slot>
 
-    <!-- 🚨 ALERTA DE ÉXITO -->
-    @if(session('success'))
-        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
-            <div class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center" role="alert">
-                <span class="font-semibold">{{ session('success') }}</span>
-                <button onclick="this.parentElement.remove();" class="text-red-700 font-bold px-2">✕</button>
-            </div>
-        </div>
-    @endif
-
 <div class="py-5">
     <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <!-- Botón para agregar nuevo producto -->
@@ -23,7 +13,13 @@
                         <a href="{{route('producto.create')}}"
                             class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3 "> 
                             Nuevo
-                        </a>                                            
+                        </a>
+                        <!-- ALERTA DE ÉXITO -->
+                        @if(session('success'))
+                            <p class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center">
+                                {{ session('success') }}
+                            </p> 
+                        @endif                                        
                 </div>
                 <!-- Tabla de productos -->
                 <div>
@@ -40,21 +36,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($productos as $producto)
+                        @foreach ($producto as $prod)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
-                                <td class="p-2">{{$producto->ID_PRODUCTO}}</td>
-                                <td>{{$producto->Referencia_producto}}</td>
-                                <td>{{$producto->Categoria_producto}}</td>
-                                <td>{{$producto->Color_producto}}</td>
-                                <td>{{$producto->Cantidad_producto}}</td>
-                                <td>{{$producto->Created_at}}</td>
+                                <td class="p-2">{{$prod->ID_PRODUCTO}}</td>
+                                <td>{{$prod->Referencia_producto}}</td>
+                                <td>{{$prod->Categoria_producto}}</td>
+                                <td>{{$prod->Color_producto}}</td>
+                                <td>{{$prod->Cantidad_producto}}</td>
+                                <td>{{$prod->Created_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
-                                    <a href="{{ route('producto.edit', $producto->ID_PRODUCTO) }}"
+                                    <a href="{{ route('producto.edit', $prod) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
                                     </a>
-                                    <form action="{{ route('producto.destroy', $producto->ID_PRODUCTO) }}" method="POST"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">
+                                    <form action="{{ route('producto.destroy', $prod) }}" method="POST"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
+                                        style="display:inline" onsubmit="return confirm('¿Deseas eliminar este producto?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit">Eliminar</button>

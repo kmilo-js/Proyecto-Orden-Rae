@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Productos;
-use App\Http\Controllers\Productos\ProductoController;
+use App\Models\Producto;
+use App\Http\Controllers\Producto\ProductoController;
 
 use App\Http\Controllers\Inventario\InventarioController;
 use App\Models\Inventario;

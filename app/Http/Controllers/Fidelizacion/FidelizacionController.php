@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fidelizacion;
 use App\Http\Controllers\Controller;
 use App\Models\Fidelizacion;
 use Illuminate\Http\Request;
+use App\Models\Usuario;
 
 class FidelizacionController extends Controller
 {
@@ -13,8 +14,10 @@ class FidelizacionController extends Controller
      */
     public function index()
     {           
-        $fidelizacion = Fidelizacion::all();
-        return view('fidelizacion.index', compact('fidelizacion'));    
+        $fidelizacion = Fidelizacion::with(['Usuario'])
+        ->orderBy('ID_FIDELIZACION')
+        ->get();
+        return view('fidelizacion.index', compact('fidelizacion'));
     }
 
     /**
@@ -22,7 +25,10 @@ class FidelizacionController extends Controller
      */
     public function create()
     {
-        return view('fidelizacion.create');
+        return view('fidelizacion.create',[
+            'fidelizacion' => Fidelizacion::orderBy('Fecha_de_fidelizacion')->get(['ID_FIDELIZACION','Fecha_de_fidelizacion']),
+            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+        ]);
     }
 
     /**
@@ -30,7 +36,9 @@ class FidelizacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Fidelizacion::create($request->validated());
+        return redirect()->route('fidelizacion.index')
+        ->with('success', 'Producto creado exitosamente.');
     }
 
     /**
@@ -38,7 +46,7 @@ class FidelizacionController extends Controller
      */
     public function show(Fidelizacion $fidelizacion)
     {
-        //
+        return view('fidelizacion.show', compact('fidelizacion'));
     }
 
     /**
@@ -46,7 +54,10 @@ class FidelizacionController extends Controller
      */
     public function edit(Fidelizacion $fidelizacion)
     {
-        //
+        return view('fidelizacion.edit',[
+            'fidelizacion' => $fidelizacion,
+            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+        ]);
     }
 
     /**
@@ -54,7 +65,9 @@ class FidelizacionController extends Controller
      */
     public function update(Request $request, Fidelizacion $fidelizacion)
     {
-        //
+        $fidelizacion->update($request->validated());
+        return redirect()->route('fidelizacion.index')
+        ->with('success', 'Fidelización se actualizado');
     }
 
     /**
@@ -62,6 +75,12 @@ class FidelizacionController extends Controller
      */
     public function destroy(Fidelizacion $fidelizacion)
     {
-        //
+        try {
+            $fidelizacion->delete();
+            return back()->with('success', 'Registro eliminado exitosamente'); 
+            } 
+        catch (\Throwable $fidelizacion){
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados');
+            }
     }
 }

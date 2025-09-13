@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $usuarios_id
  * 
  * @property Usuario $usuario
- * @property Collection|Producto[] $productos
+ * @property Collection|Producto[] $producto
  *
  * @package App\Models
  */
@@ -56,8 +56,8 @@ class Inventario extends Model
 		return $this->belongsTo(Usuario::class, 'usuarios_id');
 	}
 
-	public function productos()
+	public function producto()
 	{
-		return $this->hasMany(Producto::class);
+		return $this->hasMany(Producto::class, 'inventario_id');
 	}
 }

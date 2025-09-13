@@ -14,6 +14,12 @@
                             class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
                             Nuevo Producto
                         </a>
+                        <!-- ALERTA DE ÉXITO -->
+                        @if(session('success'))
+                            <p class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center">
+                                {{ session('success') }}
+                            </p> 
+                        @endif    
                     </div>
                 </div>
                 <!-- Tabla de productos -->
@@ -41,13 +47,19 @@
                                 <td>{{$items->Cantidad_producto}}</td>
                                 <td>{{$items->Estado_producto}}</td>
                                 <td>{{$items->Created_at}}</td>
-                                <td class="px-6 py-4">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                                <td class="px-6 py-4 gap-2 flex justify-center">
+                                    <a href="{{ route('inventario.edit', $inventario) }}"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
+                                    </a>
                                     </button>
-                                    <button class="bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-md">
-                                        Eliminar
-                                    </button>
+                                    <form action="{{ route('inventario.destroy', $inventario) }}" method="POST"
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
+                                        style="display:inline" onsubmit="return confirm('¿Deseas eliminar este producto?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit">Eliminar</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

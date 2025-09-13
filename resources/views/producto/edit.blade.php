@@ -5,43 +5,33 @@
         </h2>
     </x-slot>
 
-    <div class="p-8 flex justify-center border border-transparent rounded-xl max-w-lg mt-10 mx-auto bg-white shadow-xl transform hover:scale-102 transition-all duration-300 ease-in-out">
-        <form action="{{ route('producto.update', $producto->ID_PRODUCTO) }}" method="POST" class="gap-6 w-full bg-[#efe7dd] p-8 rounded-lg shadow-lg">
-            @csrf
-            @method('PUT')
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="py-8">
+                    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white p-6 shadow sm:rounded-lg">
+                            <form action="{{ route('producto.update', $producto) }}" method="POST" class="space-y-6">
+                                @csrf
+                                @method('PUT')
 
-            <div class="space-y-6">
-                <!-- Referencia -->
-                <div>
-                    <label for="referencia" class="block text-[#764b36] text-lg font-semibold">Referencia:</label>
-                    <input id="referencia" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="referencia" value="{{ $producto->Referencia_producto }}">
-                </div>
+                                @include('producto._form', [
+                                    'producto' => $producto,
+                                    'inventario' => $inventarios,
+                                    'usuarios' => $usuarios,
+                                    'productos' => $productos,
+                                ])
 
-                <!-- Categoria -->
-                <div>
-                    <label for="categoria" class="block text-[#764b36] text-lg font-semibold">Categoría:</label>
-                    <input id="categoria" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="categoria" value="{{ $producto->Categoria_producto }}">
-                </div>
-
-                <!-- Color -->
-                <div>
-                    <label for="color" class="block text-[#764b36] text-lg font-semibold">Color:</label>
-                    <input id="color" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="color" value="{{ $producto->Color_producto }}">
-                </div>
-
-                <!-- Cantidad -->
-                <div>
-                    <label for="cantidad" class="block text-[#764b36] text-lg font-semibold">Cantidad:</label>
-                    <input id="cantidad" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="number" name="cantidad" value="{{ $producto->Cantidad_producto }}">
-                </div>
-
-                <!-- Botón de actualizar -->
-                <div class="flex justify-center mt-8">
-                    <button type="submit" class="bg-[#764b36] text-white font-semibold py-3 px-8 rounded-lg transform hover:scale-105 hover:bg-[#5a3625] transition-all duration-200 ease-in-out shadow-md">
-                        Actualizar
-                    </button>
+                                <div class="pt-4 flex gap-3">
+                                    <button class="px-4 py-2 bg-red-600 text-white rounded">Actualizar</button>
+                                    <a href="{{ route('producto.index') }}"
+                                        class="px-4 py-2 border rounded">Cancelar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </x-app-layout>

@@ -4,53 +4,33 @@
             {{ __('Crear Producto') }}
         </h2>
     </x-slot>
-        <!-- 🚨 ALERTA DE ÉXITO -->
-    @if(session('success'))
-        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8 mt-4">
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center" role="alert">
-                <span class="font-semibold">{{ session('success') }}</span>
-                <button onclick="this.parentElement.remove();" class="text-green-700 font-bold px-2">✕</button>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <div class="py-8">
+                    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+                        <div class="bg-white p-6 shadow sm:rounded-lg">
+                            <form action="{{ route('producto.store') }}" method="POST" class="space-y-6">
+                                @csrf
+                                @include('producto._form', [
+                                    'producto' => null,
+                                    'inventario' => $inventario,
+                                    'usuarios' => $usuarios,
+                                    'productos' => $productos,
+                                ])
+
+                                <div class="pt-4 flex gap-3">                                    
+                                    <button
+                                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guardar</button>
+                                    <a href="{{ route('producto.index') }}"
+                                        class="px-4 py-2 border rounded">Cancelar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    @endif
-
-    <div class="p-1 flex justify-center border border-transparent rounded-xl max-w-lg mt-10 mx-auto bg-white shadow-xl transform hover:scale-102 transition-all duration-300 ease-in-out">
-        <form action="{{ route('producto.store') }}" method="POST" class="gap-6 w-full bg-[#efe7dd] p-8 rounded-lg shadow-lg">
-            @csrf
-
-            <div class="space-y-6">
-                <!-- Referencia -->
-                <div>
-                    <label for="referencia" class="block text-[#764b36] text-lg font-semibold">Referencia:</label>
-                    <input id="referencia" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Referencia_producto">
-                </div>
-
-                <!-- Categoria -->
-                <div>
-                    <label for="categoria" class="block text-[#764b36] text-lg font-semibold">Categoría:</label>
-                    <input id="categoria" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Categoria_producto">
-                </div>
-
-                <!-- Color -->
-                <div>
-                    <label for="color" class="block text-[#764b36] text-lg font-semibold">Color:</label>
-                    <input id="color" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="text" name="Color_producto">
-                </div>
-
-                <!-- Cantidad -->
-                <div>
-                    <label for="cantidad" class="block text-[#764b36] text-lg font-semibold">Cantidad:</label>
-                    <input id="cantidad" class="w-full p-4 rounded-lg border border-[#764b36] focus:ring-2 focus:ring-[#764b36] focus:outline-none transition-all duration-300" type="number" name="Cantidad_producto">
-                </div>
-
-                <!-- Botón de guardar -->
-                <div class="flex justify-center mt-8">
-                    <button type="submit" class="bg-[#764b36] text-white font-semibold py-3 px-8 rounded-lg transform hover:scale-105 hover:bg-[#5a3625] transition-all duration-200 ease-in-out shadow-md">
-                        Guardar
-                    </button>
-                </div>
-            </div>
-        </form>
-
     </div>
 </x-app-layout>
