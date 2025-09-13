@@ -45,22 +45,4 @@
         </select>
         @error('Estado_producto')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
     </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-            <label class="block text-sm font-medium mb-1">Fecha de creación *</label>
-            <input type="date" name="Created_at"
-                    value="{{ old('Created_at', isset($producto) && $producto->Created_at ? $producto->Created_at->format('Y-m-d') : '') }}"
-                    class="w-full border rounded px-3 py-2" required>
-            @error('Created_at')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
-        </div>
-
-        <!-- Fecha actualización -->
-        <div>
-            <label class="block text-sm font-medium mb-1">Última actualización</label>
-            <input type="date" name="Updated_at"
-                    value="{{ old('Updated_at', isset($inventario) && $inventario->Updated_at ? $inventario->Updated_at->format('Y-m-d') : '') }}"
-                    class="w-full border rounded px-3 py-2">
-            @error('Updated_at')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
-        </div>
 </div>

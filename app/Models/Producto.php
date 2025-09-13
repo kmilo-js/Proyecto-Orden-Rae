@@ -53,7 +53,6 @@ class Producto extends Model
 		'Categoria_producto',
 		'Color_producto',
 		'Cantidad_producto',
-		'Created_at',
 		'usuarios_id',
 		'inventario_id'
 	];

@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $Created_at
  * @property Carbon $Updated_at
  * 
- * @property Collection|Producto[] $producto
+ * @property Collection|Producto[] $productos
  * @property Collection|Usuario[] $usuarios
  * @property Collection|Ventum[] $venta
  *
@@ -50,7 +50,7 @@ class Pedido extends Model
 		'Updated_at'
 	];
 
-	public function producto()
+	public function productos()
 	{
 		return $this->belongsToMany(Producto::class, 'pedido_has_producto')
 					->withPivot('ID_PEDIDO_PRODUCTO');

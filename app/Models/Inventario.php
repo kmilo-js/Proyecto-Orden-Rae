@@ -34,6 +34,9 @@ class Inventario extends Model
 	protected $primaryKey = 'ID_INVENTARIO';
 	public $timestamps = false;
 
+	const CREATED_AT = 'Created_at';
+    const UPDATED_AT = 'Updated_at';
+
 	protected $casts = [
 		'Created_at' => 'datetime',
 		'Updated_at' => 'datetime',
@@ -46,8 +49,6 @@ class Inventario extends Model
 		'Color_producto',
 		'Cantidad_producto',
 		'Estado_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id'
 	];
 

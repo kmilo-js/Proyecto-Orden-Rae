@@ -29,28 +29,19 @@ class InventarioController extends Controller
     public function create()
     {
         return view('inventario.create',[
-            'inventario' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'producto' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
         ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreInventarioRequest $request)
     {
         Inventario::create($request->validated());
-        return redirect()->route('inventario.index')
-        ->with('success', 'Producto creado exitosamente.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(StoreInventarioRequest $request)
-    {
-        return view('inventario.show', compact('inventario'));
+        return redirect()->route('inventario.index')->with('success', 'Producto creado exitosamente.');
     }
 
     /**
@@ -62,7 +53,7 @@ class InventarioController extends Controller
             'inventario' => $inventario,
             'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'producto' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
         ]);
     }
 
@@ -72,8 +63,7 @@ class InventarioController extends Controller
     public function update(UpdateInventarioRequest $request, Inventario $inventario)
     {
         $inventario->update($request->validated());
-        return redirect()->route('inventario.index')
-        ->with('success', 'Producto se actualizado');
+        return redirect()->route('inventario.index')->with('success', 'Producto se actualizado');
     }
 
     /**

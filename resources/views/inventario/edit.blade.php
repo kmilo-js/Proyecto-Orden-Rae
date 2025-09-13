@@ -16,9 +16,9 @@
                                 @method('PUT')
 
                                 @include('inventario._form', [
-                                    'inventario' => $inventario,
+                                    'inventarios' => $inventarios,
                                     'usuarios' => $usuarios,
-                                    'producto' => $producto,
+                                    'productos' => $productos,
                                 ])
 
                                 <div class="pt-4 flex gap-3">

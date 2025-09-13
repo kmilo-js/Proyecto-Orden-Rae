@@ -16,7 +16,7 @@
                                 @include('inventario._form', [
                                     'inventario' => null,
                                     'usuarios' => $usuarios,
-                                    'producto' => $producto,
+                                    'productos' => $productos,
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

@@ -10,6 +10,9 @@ use App\Models\Inventario;
 use App\Http\Controllers\Fidelizacion\FidelizacionController;
 use App\Models\Fidelizacion;
 
+use App\Http\Controllers\Usuario\UsuariosController;
+use App\Models\Usuario;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,6 +29,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('fidelizacion', FidelizacionController::class)
 ->names('fidelizacion');
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
+->resource('usuario', UsuariosController::class)
+->names('usuario');
 
 
 Route::middleware([
