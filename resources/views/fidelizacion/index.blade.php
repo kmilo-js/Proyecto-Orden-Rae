@@ -5,8 +5,8 @@
         </h2>
     </x-slot>
 
-<div class="py-5">
-    <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
+<div class="overflow-x-auto">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <!-- Botón para agregar nuevo producto -->
                         <div class="flex justify-end p-2 mr-4">
                             <!--Url de la ruta para inventario.create-->
@@ -14,6 +14,15 @@
                                 class=" border border-black hover:bg-gray-300 font-bold rounded-md px-5 py-3"> 
                                 Agregar nuevo cliente
                             </a>
+                            <!-- ALERTA DE ÉXITO -->
+                            @if(session('success'))
+                                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md mb-4 flex justify-between items-center">
+                                    <span>{{ session('success') }}</span>
+                                    <button type="button" class="text-green-500 hover:text-green-700 font-bold" onclick="this.parentElement.remove()">
+                                    ×
+                                    </button>
+                                </div>
+                            @endif 
                         </div>
                 <!-- Tabla de productos -->
                 <div>

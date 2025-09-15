@@ -54,7 +54,7 @@ class Inventario extends Model
 
 	public function usuario()
 	{
-		return $this->belongsTo(Usuario::class, 'usuarios_id');
+		return $this->belongsTo(Usuario::class, 'usuarios_id', 'ID_USUARIO');
 	}
 
 	public function producto()

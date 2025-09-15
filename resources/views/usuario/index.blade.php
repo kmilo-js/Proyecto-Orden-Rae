@@ -16,9 +16,12 @@
                         </a>
                         <!-- ALERTA DE ÉXITO -->
                         @if(session('success'))
-                            <p class="bg-green-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg shadow-md relative flex justify-between items-center">
-                                {{ session('success') }}
-                            </p> 
+                            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md mb-4 flex justify-between items-center">
+                                <span>{{ session('success') }}</span>
+                                <button type="button" class="text-green-500 hover:text-green-700 font-bold" onclick="this.parentElement.remove()">
+                                ×
+                                </button>
+                            </div>
                         @endif                                        
                 </div>
                 <!-- Tabla de usuarios -->

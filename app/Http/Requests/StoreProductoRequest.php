@@ -26,9 +26,8 @@ class StoreProductoRequest extends FormRequest
             'Categoria_producto' => 'required|string|max:50',
             'Color_producto' => 'required|string|max:30',
             'Cantidad_producto' => 'required|integer|min:0',
-            'Created_at' => 'required|date',
-            'usuarios_id' => 'integer|exists:usuarios,ID_USUARIO',
-            'inventario_id' => 'integer|exists:inventario,ID_INVENTARIO',
+            'usuarios_id' => 'required|integer|exists:usuarios,ID_USUARIO',
+            'inventario_id' => 'required|integer|exists:inventario,ID_INVENTARIO',
         ];
     }
     public function messages()
@@ -41,6 +40,8 @@ class StoreProductoRequest extends FormRequest
             'Cantidad_producto.min' => 'La cantidad no puede ser negativa.',
             'usuarios_id.exists' => 'El usuario asignado no existe.',
             'inventario_id.exists' => 'El inventario seleccionado no existe.',
+            'usuarios_id.integer' => 'El ID del usuario debe ser un número entero válido.',
+            'inventario_id.integer' => 'El ID del inventario debe ser un número entero válido.',
         ];
     }
 }

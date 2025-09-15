@@ -23,7 +23,7 @@
                                 ])
 
                                 <div class="pt-4 flex gap-3">
-                                    <button class="px-4 py-2 bg-red-600 text-white rounded">Actualizar</button>
+                                    <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded">Actualizar</button>
                                     <a href="{{ route('producto.index') }}"
                                         class="px-4 py-2 border rounded">Cancelar</a>
                                 </div>

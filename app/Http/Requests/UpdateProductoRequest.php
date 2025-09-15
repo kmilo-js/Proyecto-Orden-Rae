@@ -26,7 +26,6 @@ class UpdateProductoRequest extends FormRequest
             'Categoria_producto' => 'required|string|max:50',
             'Color_producto' => 'required|string|max:30',
             'Cantidad_producto' => 'required|integer|min:0',
-            'Created_at' => 'required|date',
             'usuarios_id' => 'integer|exists:usuarios,ID_USUARIO',
             'inventario_id' => 'integer|exists:inventario,ID_INVENTARIO',
         ];

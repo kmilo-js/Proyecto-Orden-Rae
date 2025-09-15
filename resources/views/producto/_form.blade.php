@@ -3,7 +3,17 @@
     $val = fn($key, $default = '') => old($key, isset($producto) ? ($producto->{$key} ?? $default) : $default);
 @endphp
 
+
 <div class="space-y-4">
+    @if ($errors->any())
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+        <ul class="list-disc pl-5">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
@@ -40,7 +50,7 @@
     <select name="inventario_id" class="w-full border rounded px-3 py-2" required>
         <option value="">Seleccione un inventario</option>
         @foreach($inventario as $inv)
-            <option value="{{ $inv->inventario_id }}" @selected($val('inventario_id') == $inv->inventario_id)>
+            <option value="{{ $inv->ID_INVENTARIO }}" @selected($val('inventario_id') == $inv->ID_INVENTARIO)>
                 {{ $inv->ID_INVENTARIO }}
             </option>
         @endforeach
@@ -53,7 +63,7 @@
     <select name="usuarios_id" class="w-full border rounded px-3 py-2" required>
         <option value="">Seleccione un usuario</option>
         @foreach($usuarios as $u)
-            <option value="{{ $u->usuarios_id }}" @selected($val('usuarios_id') == $u->usuarios_id)>
+            <option value="{{ $u->ID_USUARIO }}" @selected($val('usuarios_id') == $u->ID_USUARIO)>
                 {{ $u->ID_USUARIO }}
             </option>
         @endforeach

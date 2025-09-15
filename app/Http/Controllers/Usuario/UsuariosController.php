@@ -15,7 +15,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::with(['Role','Inventarios', 'Fidelizacions','Produccions','Productos','soporte_pagos','Pedidos','venta_has_usuarios'])
+        $usuario = Usuario::with(['Role','Inventario', 'Fidelizacion','Produccion','Producto','soportepago','Pedido','ventahasusuario'])
         ->orderBy('ID_USUARIO')
         ->get();
         return view('usuario.index', compact('usuario'));
@@ -27,27 +27,19 @@ class UsuariosController extends Controller
     public function create()
     {
         // Traer todos los usuarios con sus relaciones cargadas
-        $usuarios = Usuario::with([
-            'Role',
-            'Inventario',
-            'Fidelizacion',
-            'Produccion',
-            'Producto',
-            'SoportePago',
-            'Pedido',
-            'VentaHasUsuario'
-        ])->orderBy('Nombres')->get();
+        $usuario = Usuario::with(['Role','Inventario','Fidelizacion','Produccion','Producto','SoportePago','Pedido','VentaHasUsuario'])
+        ->orderBy('Nombres')->get();
 
         // Traer productos e inventarios normalmente
-        $inventarios = Inventario::orderBy('Referencia_producto')
+        $inventario = Inventario::orderBy('Referencia_producto')
             ->get(['ID_INVENTARIO','Referencia_producto']);
 
         $productos = Producto::orderBy('Referencia_producto')
             ->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
 
         return view('usuario.create', [
-            'usuarios' => $usuarios,
-            'inventarios' => $inventarios,
+            'usuarios' => $usuario,
+            'inventario' => $inventario,
             'productos' => $productos,
         ]);
         }
@@ -57,15 +49,8 @@ class UsuariosController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Usuario $usuario)
-    {
-        //
+        Usuario::create($request->validated());
+        return redirect()->route('usuario.index')->with('success', 'Usuario creado exitosamente.');
     }
 
     /**
@@ -73,7 +58,12 @@ class UsuariosController extends Controller
      */
     public function edit(Usuario $usuario)
     {
-        //
+            return view('usuario.edit',[
+            'usuario' => $usuario,
+            'inventario' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+        ]);
     }
 
     /**
