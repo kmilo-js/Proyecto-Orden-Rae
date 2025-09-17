@@ -1,0 +1,146 @@
+/* === ESTRUCTURA GENERAL DE LA PÁGINA === */
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logotipo {
+  text-align: center;
+  margin-bottom: 1 px;
+}
+
+.logotipo img {
+  max-width: 180px; /* Ajusta el tamaño */
+  height: auto;
+}
+/* === TÍTULO PRINCIPAL DEL FORMULARIO === */
+.titulo-formulario {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* === CONTENEDOR PRINCIPAL DEL FORMULARIO === */
+.formulario-container {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    max-height: 97vh;
+    background-color: #f0e7db;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === SECCIÓN DE ÍCONOS SOCIALES === */
+.iconos-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.icono-social {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.icono-social:hover {
+    transform: scale(1.2);
+}
+
+/* === FORMULARIO Y SUS CAMPOS === */
+.formulario,
+.formulario2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px; /* Limita el tamaño */
+}
+#usuario,
+#contrasena {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #948787;
+    border-radius: 5px;
+}
+
+/* === CAMPOS DE ENTRADA === */
+#usuario:focus,
+#contrasena:focus {
+    border-color: #b1b1a9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(202, 204, 187, 0.5);
+}
+
+/* === ENLACE PARA CAMBIAR DE FORMULARIO (LOGIN/REGISTRO) === */
+.link-formulario {
+    color: #131212;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 14px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.link-formulario:hover {
+    text-decoration: underline;
+}
+
+/* === BOTÓN PRINCIPAL DEL FORMULARIO === */
+.boton-formulario {
+    background-color: #764b36;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgb(201, 176, 123);
+}
+
+/* === ADAPTACIÓN RESPONSIVA PARA PANTALLAS PEQUEÑAS === */
+.boton-formulario:hover {
+    background-color: #764b36;
+    transform: scale(1.02);
+}
+@media (max-width: 400px) {
+    .formulario-container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .titulo-formulario {
+        font-size: 32px;
+    }
+
+    .iconos-sociales {
+        gap: 20px;
+    }
+
+    .boton-formulario {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+

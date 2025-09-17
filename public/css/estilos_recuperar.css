@@ -1,0 +1,101 @@
+/* === ESTILOS GENERALES DEL CUERPO === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* === CONTENEDOR PRINCIPAL DEL FORMULARIO === */
+.contenedor-recuperar {
+    background-color: #fff;
+    border: 2px solid #000;
+    border-radius: 12px;
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* === TÍTULO DEL FORMULARIO === */
+.contenedor-recuperar h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+/* === TEXTO DESCRIPTIVO === */
+.contenedor-recuperar p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* === CAMPO DE CORREO ELECTRÓNICO === */
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* === EFECTO AL ENFOCAR EL INPUT === */
+input[type="email"]:focus {
+    border-color: #ff0000;
+    outline: none;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.3);
+}
+
+/* === BOTÓN DE RECUPERACIÓN === */
+.btn-recuperar {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+/* === EFECTO HOVER DEL BOTÓN === */
+.btn-recuperar:hover {
+    background-color: #c40000;
+    transform: scale(1.02);
+}
+
+/* === ENLACE PARA VOLVER AL INICIO DE SESIÓN === */
+.volver-login {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ff0000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* === EFECTO HOVER DEL ENLACE === */
+.volver-login:hover {
+    text-decoration: underline;
+}
+
+/* === ADAPTACIÓN A DISPOSITIVOS PEQUEÑOS === */
+@media (max-width: 400px) {
+.contenedor-recuperar {
+    padding: 30px 20px;
+}
+
+.contenedor-recuperar h2 {
+    font-size: 22px;
+}
+}
