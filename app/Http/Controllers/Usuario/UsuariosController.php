@@ -7,6 +7,9 @@ use App\Models\Usuario;
 use App\Models\Inventario;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUsuarioRequest;
+use App\Http\Requests\UpdateUsuarioRequest;
+use App\Models\Role; // 
 
 class UsuariosController extends Controller
 {
@@ -15,7 +18,7 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuario = Usuario::with(['Role','Inventario', 'Fidelizacion','Produccion','Producto','soportepago','Pedido','ventahasusuario'])
+        $usuario = Usuario::with(['role', 'inventario', 'fidelizacion', 'produccion', 'producto', 'soportePago', 'pedido', 'ventahasusuario'])
         ->orderBy('ID_USUARIO')
         ->get();
         return view('usuario.index', compact('usuario'));
@@ -26,52 +29,51 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        // Traer todos los usuarios con sus relaciones cargadas
-        $usuario = Usuario::with(['Role','Inventario','Fidelizacion','Produccion','Producto','SoportePago','Pedido','VentaHasUsuario'])
-        ->orderBy('Nombres')->get();
+        $roles = Role::orderBy('Cargo')->get(); // ← Obtener roles
 
-        // Traer productos e inventarios normalmente
-        $inventario = Inventario::orderBy('Referencia_producto')
-            ->get(['ID_INVENTARIO','Referencia_producto']);
+        $inventario = Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']);
+        $productos = Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
 
-        $productos = Producto::orderBy('Referencia_producto')
-            ->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
-
-        return view('usuario.create', [
-            'usuarios' => $usuario,
-            'inventario' => $inventario,
-            'productos' => $productos,
-        ]);
+        return view('usuario.create', compact('roles', 'inventario', 'productos')); // ← Pasar $roles
         }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUsuarioRequest $request)
     {
-        Usuario::create($request->validated());
-        return redirect()->route('usuario.index')->with('success', 'Usuario creado exitosamente.');
-    }
+        $data = $request->validated();
+        $data['Contrase_usuario'] = 'no-login-required'; // O 'no-login' si no puedes cambiar la BD
+
+        Usuario::create($data);
+
+        return redirect()->route('usuario.index')->with('success', 'Usuario registrado exitosamente.');
+        }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Usuario $usuario)
     {
-            return view('usuario.edit',[
-            'usuario' => $usuario,
-            'inventario' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
-            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
-        ]);
+            $roles = Role::orderBy('Cargo')->get(); // ← Obtener roles
+
+            $inventario = Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']);
+            $productos = Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
+
+            return view('usuario.edit', compact('usuario', 'roles', 'inventario', 'productos')); // ← Pasar $roles
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(UpdateUsuarioRequest $request, Usuario $usuario)
     {
-        //
+        $data = $request->validated();
+        $data['Contrase_usuario'] = $usuario->Contrase_usuario; // Mantener valor existente
+
+        $usuario->update($data);
+
+        return redirect()->route('usuario.index')->with('success', 'Usuario actualizado exitosamente.');
     }
 
     /**
@@ -79,6 +81,12 @@ class UsuariosController extends Controller
      */
     public function destroy(Usuario $usuario)
     {
-        //
+        try {
+            $usuario->delete();
+            return back()->with('success', 'Usuario eliminado exitosamente'); 
+            } 
+        catch (\Throwable $prod){
+            return back()->withErrors('No se puede eliminar: tiene registros relacionados');
+            }
     }
 }

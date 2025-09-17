@@ -15,7 +15,7 @@
                                 @csrf
                                 @include('usuario._form', [
                                     'usuarios' => null,
-                                    'usuarios' => $usuarios,
+                                    'usuario' => null,
                                     'inventario' => $inventario,
                                     'productos' => $productos,
                                 ])

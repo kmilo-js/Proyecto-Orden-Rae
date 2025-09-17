@@ -45,12 +45,12 @@
                 </div>
                     <!-- Botones de carrito y perfil -->
                 <div class="botones">
-                    <a href="Carro_compra.html" class="icono-carrito">
-                        <img src="img/CarritoCompra.png" alt="Carrito" class="icono-img">
+                    <a href="{{ route('carro-compra') }}" class="icono-carrito">
+                        <img src="{{asset('Img/CarritoCompra.png')}}" alt="Carrito" class="icono-img">
                     </a>
                     <div class="menu-usuario">
                         <a href="#" class="icono-usuario">
-                            <img src="img/usuario.png" alt="Usuario" class="icono-img">
+                            <img src="{{asset('Img/usuario.png')}}" alt="Usuario" class="icono-img">
                         </a>
                         @if (Route::has('login'))
                             <div class="submenu">
@@ -83,11 +83,11 @@
                     <div>
                         <!-- Menú de navegación con enlaces -->
                         <nav class="navegacion">
-                            <a href="index.html" class="home" aria-label="Ir a la página principal">Home</a>
-                            <a href="productos.html" class="productos" aria-label="Ver productos">Productos</a>
-                            <a href="promociones.html" class="promociones" aria-label="Ver promociones">Promociones</a>
-                            <a href="contacto.html" class="contacto" aria-label="Contactar con nosotros">Contacto</a>
-                            <a href="cotiza.html" class="boton_rojo" aria-label="Cotiza aquí">COTICE AQUI</a>
+                            <a href="http://127.0.0.1:8000/" class="home" aria-label="Ir a la página principal">Home</a>
+                            <a href="{{ route('productos') }}" class="productos" aria-label="Ver productos">Productos</a>
+                            <a href="{{ route('promociones') }}" class="promociones" aria-label="Ver promociones">Promociones</a>
+                            <a href="{{ route('contacto') }}" class="contacto" aria-label="Contactar con nosotros">Contacto</a>
+                            <a href="{{ route('cotiza') }}" class="boton_rojo" aria-label="Cotiza aquí">COTICE AQUI</a>
                         </nav>
                     </div>
                 </section>                        
@@ -102,15 +102,15 @@
 
                     <!-- Imágenes a pantalla completa con número -->
                     <div class="diapositiva desvanecer">
-                        <img src="Img/CamaMontessori4.jpg" style="width:100%">
+                        <img src="{{asset('Img/CamaMontessori4.jpg')}}" style="width:100%">
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="Img/Camarotes1.jpg" style="width:100%">
+                        <img src="{{asset('Img/Camarotes1.jpg')}}" style="width:100%">
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="Img/Cama1.jpg" style="width:100%">
+                        <img src="{{asset('Img/Cama1.jpg')}}" style="width:100%">
                     </div>
 
                     <!-- Botones anterior y siguiente -->
@@ -129,9 +129,9 @@
             <figure>
                 <!--<img class="img_categoria" src="Img/catalogo.jpeg" alt="Imagen de categorias">-->
                 <div class="contenedor-imagenes">
-                    <img src="Img/Sofá1.JPG" alt="Imagen Sofá de 2 puestos">
-                    <img src="Img/Sofá2.JPG" alt="Imagen Sofá de 4 puestos">
-                    <img src="Img/Sofá3.JPG" alt="Imagen Sofá de 3 puestos">
+                    <img src="{{asset('Img/Sofá1.JPG')}}" alt="Imagen Sofá de 2 puestos">
+                    <img src="{{asset('Img/Sofá2.JPG')}}" alt="Imagen Sofá de 4 puestos">
+                    <img src="{{asset('Img/Sofá3.JPG')}}" alt="Imagen Sofá de 3 puestos">
                 </div>
             </figure>
             <hr>
@@ -172,8 +172,8 @@
                     <h3>SÍGUENOS</h3>
                     <hr>
                     <div class="footer-redes">
-                        <a href="#"><img src="Img/Instagram (2).png" alt="Instagram" /></a>
-                        <a href="#"><img src="Img/Facebook (2).png" alt="Facebook" /></a>
+                        <a href="#"><img src="{{asset('Img/Instagram (2).png')}}" alt="Instagram" /></a>
+                        <a href="#"><img src="{{asset('Img/Facebook (2).png')}}" alt="Facebook" /></a>
                     </div>
                 </div>
             </div>

@@ -10,7 +10,10 @@ class Usuario extends Model
 {
     protected $table = 'usuarios';
     protected $primaryKey = 'ID_USUARIO';
-    public $timestamps = false;
+    public $timestamps = true;
+
+    const CREATED_AT = 'Created_at';
+    const UPDATED_AT = 'Updated_at';
 
     protected $casts = [
         'Documento' => 'int',
