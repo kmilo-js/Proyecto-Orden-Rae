@@ -32,7 +32,7 @@ class Inventario extends Model
 {
 	protected $table = 'inventario';
 	protected $primaryKey = 'ID_INVENTARIO';
-	public $timestamps = false;
+	public $timestamps = true;
 
 	const CREATED_AT = 'Created_at';
     const UPDATED_AT = 'Updated_at';

@@ -53,12 +53,11 @@
                                 <td>{{$items->Estado_producto}}</td>
                                 <td>{{$items->Created_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
-                                    <a href="{{ route('inventario.edit', $inventario) }}"
+                                    <a href="{{ route('inventario.edit', $items) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
                                     </a>
-                                    </button>
-                                    <form action="{{ route('inventario.destroy', $inventario) }}" method="POST"
+                                    <form action="{{ route('inventario.destroy', $items) }}" method="POST"
                                         class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
                                         style="display:inline" onsubmit="return confirm('¿Deseas eliminar este producto?')">
                                         @csrf

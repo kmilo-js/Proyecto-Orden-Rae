@@ -17,9 +17,9 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventario = Inventario::with(['Producto','Usuario'])
-        ->orderBy('ID_INVENTARIO')
-        ->get();
+        $inventario = Inventario::with(['producto', 'usuario'])
+            ->orderBy('ID_INVENTARIO')
+            ->get();
         return view('inventario.index', compact('inventario'));
     }
 
@@ -28,8 +28,8 @@ class InventarioController extends Controller
      */
     public function create()
     {
-        return view('inventario.create',[
-            'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+        return view('inventario.create', [
+            'inventario' => null,
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
             'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
         ]);
@@ -49,11 +49,12 @@ class InventarioController extends Controller
      */
     public function edit(Inventario $inventario)
     {
-        return view('inventario.edit',[
+        return view('inventario.edit', [
             'inventario' => $inventario,
-            'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
             'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            // Si necesitas lista de inventarios para select, descomenta:
+            // 'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
         ]);
     }
 
@@ -63,7 +64,7 @@ class InventarioController extends Controller
     public function update(UpdateInventarioRequest $request, Inventario $inventario)
     {
         $inventario->update($request->validated());
-        return redirect()->route('inventario.index')->with('success', 'Producto se actualizado');
+        return redirect()->route('inventario.index')->with('success', 'Producto actualizado exitosamente.');
     }
 
     /**
@@ -73,10 +74,9 @@ class InventarioController extends Controller
     {
         try {
             $inventario->delete();
-            return back()->with('success', 'Producto eliminado exitosamente'); 
-            } 
-        catch (\Throwable $inventario){
+            return back()->with('success', 'Producto eliminado exitosamente');
+        } catch (\Throwable $e) {
             return back()->withErrors('No se puede eliminar: tiene registros relacionados');
-            }
+        }
     }
 }

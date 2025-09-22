@@ -29,7 +29,10 @@ class Fidelizacion extends Model
 {
 	protected $table = 'fidelizacion';
 	protected $primaryKey = 'ID_FIDELIZACION';
-	public $timestamps = false;
+	public $timestamps = true;
+
+	const CREATED_AT = 'Created_at';
+	const UPDATED_AT = 'Updated_at';
 
 	protected $casts = [
 		'Fecha_de_fidelizacion' => 'datetime',
@@ -42,8 +45,6 @@ class Fidelizacion extends Model
 	protected $fillable = [
 		'Fecha_de_fidelizacion',
 		'Total_de_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id'
 	];
 

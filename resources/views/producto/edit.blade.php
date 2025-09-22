@@ -17,7 +17,7 @@
 
                                 @include('producto._form', [
                                     'producto' => $producto,
-                                    'inventario' => $inventarios,
+                                    'inventario' => $inventario,
                                     'usuarios' => $usuarios,
                                     'productos' => $productos,
                                 ])

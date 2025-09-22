@@ -51,7 +51,7 @@ class ProductoController extends Controller
     {
         return view('producto.edit',[
             'producto' => $producto,
-            'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'inventario' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
             'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
         ]);
