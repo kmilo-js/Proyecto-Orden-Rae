@@ -23,7 +23,7 @@ class FidelizacionController extends Controller
     {
         return view('fidelizacion.create', [
             'fidelizacion' => null,
-            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+            'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
         ]);
     }
 
@@ -42,7 +42,7 @@ class FidelizacionController extends Controller
     {
         return view('fidelizacion.edit', [
             'fidelizacion' => $fidelizacion,
-            'usuarios' => Usuario::orderBy('Nombres')->get(['ID_USUARIO','Nombres','Apellidos']),
+            'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
         ]);
     }
 

@@ -31,7 +31,7 @@ class UsuariosController extends Controller
     {
         $roles = Role::orderBy('Cargo')->get(); // ← Obtener roles
 
-        $inventario = Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']);
+        $inventario = Inventario::orderBy('ID_INVENTARIO')->get(['ID_INVENTARIO','Referencia_producto']);
         $productos = Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
 
         return view('usuario.create', compact('roles', 'inventario', 'productos')); // ← Pasar $roles
@@ -57,7 +57,7 @@ class UsuariosController extends Controller
     {
             $roles = Role::orderBy('Cargo')->get(); // ← Obtener roles
 
-            $inventario = Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']);
+            $inventario = Inventario::orderBy('ID_INVENTARIO')->get(['ID_INVENTARIO','Referencia_producto']);
             $productos = Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']);
 
             return view('usuario.edit', compact('usuario', 'roles', 'inventario', 'productos')); // ← Pasar $roles
