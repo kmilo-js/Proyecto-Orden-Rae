@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Producto;
 use App\Models\Usuario;
 use App\Models\Inventario;
+use App\Models\Categorias;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProductoRequest;
 use App\Http\Requests\UpdateProductoRequest;
@@ -17,7 +18,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $producto = Producto::with(['Inventario','Usuario'])
+        $producto = Producto::with(['Inventario','Usuario', 'categorias'])
         ->orderBy('ID_PRODUCTO')
         ->get();
         return view('producto.index', compact('producto'));
@@ -29,9 +30,9 @@ class ProductoController extends Controller
     public function create()
     {
         return view('producto.create',[
-            'inventario' => Inventario::orderBy('ID_INVENTARIO')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            'productos' => Producto::orderBy('ID_PRODUCTO')->get(['ID_PRODUCTO','Referencia_producto','categoria_id']),
+            'categorias' =>Categorias::orderBy('ID_CATEGORIA')->get(['ID_CATEGORIA','Nombre_categoria']),
         ]);
     }
 
@@ -51,9 +52,9 @@ class ProductoController extends Controller
     {
         return view('producto.edit',[
             'producto' => $producto,
-            'inventario' => Inventario::orderBy('ID_INVENTARIO')->get(['ID_INVENTARIO','Referencia_producto']),
             'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            'productos' => Producto::orderBy('ID_PRODUCTO')->get(['ID_PRODUCTO','Referencia_producto','categoria_id']),
+            'categorias' =>Categorias::orderBy('ID_CATEGORIA')->get(['ID_CATEGORIA','Nombre_categoria']),
         ]);
     }
 

@@ -34,7 +34,8 @@
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
                             <th>Fecha de fidelizacion</th>
-                            <th>Total de producto</th>
+                            <th>Puntos acumulados</th>
+                            <th>Nivel de fidelización</th>
                             <th>Fecha de Creacion</th>
                             <th>Fecha de Actualización</th>
                             <th>Botón</th>
@@ -45,7 +46,8 @@
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
                                 <td class="p-2">{{$usuarios->ID_FIDELIZACION}}</td>
                                 <td>{{$usuarios->Fecha_de_fidelizacion}}</td>
-                                <td>{{$usuarios->Total_de_producto}}</td>
+                                <td>{{$usuarios->Puntos_acumulados}}</td>
+                                <td>{{$usuarios->Nivel_fidelizacion}}</td>
                                 <td>{{$usuarios->Created_at}}</td>
                                 <td>{{$usuarios->Updated_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">

@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Categoria extends Model
+class Categorias extends Model
 {
 	protected $table = 'categorias';
 	protected $primaryKey = 'ID_CATEGORIA';

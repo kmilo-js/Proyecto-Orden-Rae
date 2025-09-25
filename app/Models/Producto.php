@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categorias;
 
 /**
  * Class Producto
@@ -25,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $categoria_id
  * 
  * @property Usuario $usuario
- * @property Categoria $categoria
+ * @property Categoria $categorias
  * @property Inventario $inventario
  * @property Collection|Pedido[] $pedidos
  * @property Collection|Produccion[] $produccions
@@ -65,9 +66,9 @@ class Producto extends Model
 		return $this->belongsTo(Usuario::class, 'usuarios_id');
 	}
 
-	public function categoria()
+	public function categorias()
 	{
-		return $this->belongsTo(Categoria::class);
+		return $this->belongsTo(Categorias::class, 'categoria_id');
 	}
 
 	public function inventario()
