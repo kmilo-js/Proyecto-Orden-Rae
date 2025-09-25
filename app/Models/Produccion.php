@@ -13,13 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * Class Produccion
  * 
  * @property int $ID_PRODUCCION
- * @property string $Codigo_producto
- * @property string $Categoria_producto
  * @property string $Material_producto
- * @property string $Tipo_de_producto
- * @property string $Color_producto
  * @property int $Cantidad_producto
- * @property string $Estado_producto
  * @property Carbon $Created_at
  * @property Carbon $Updated_at
  * @property int $usuarios_id
@@ -34,7 +29,10 @@ class Produccion extends Model
 {
 	protected $table = 'produccion';
 	protected $primaryKey = 'ID_PRODUCCION';
-	public $timestamps = false;
+	public $timestamps = true;
+
+	const CREATED_AT = 'Created_at';
+	const UPDATED_AT = 'Updated_at';
 
 	protected $casts = [
 		'Cantidad_producto' => 'int',
@@ -45,15 +43,8 @@ class Produccion extends Model
 	];
 
 	protected $fillable = [
-		'Codigo_producto',
-		'Categoria_producto',
 		'Material_producto',
-		'Tipo_de_producto',
-		'Color_producto',
 		'Cantidad_producto',
-		'Estado_producto',
-		'Created_at',
-		'Updated_at',
 		'usuarios_id',
 		'producto_id'
 	];

@@ -13,8 +13,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Role
  * 
  * @property int $ID_ROL
- * @property string $Cargo
+ * @property string $Nombre_rol
  * 
+ * @property Usuario $usuario
  * @property Collection|Permiso[] $permisos
  * @property Collection|Usuario[] $usuarios
  *
@@ -24,16 +25,16 @@ class Role extends Model
 {
 	protected $table = 'roles';
 	protected $primaryKey = 'ID_ROL';
-	public $incrementing = false;
 	public $timestamps = false;
 
-	protected $casts = [
-		'ID_ROL' => 'int'
+	protected $fillable = [
+		'Nombre_rol'
 	];
 
-	protected $fillable = [
-		'Cargo'
-	];
+	public function usuario()
+	{
+		return $this->belongsTo(Usuario::class, 'roles_id');
+	}
 
 	public function permisos()
 	{
@@ -43,6 +44,6 @@ class Role extends Model
 
 	public function usuarios()
 	{
-		return $this->hasMany(Usuario::class, 'roles_id', 'ID_ROL');
+		return $this->hasMany(Usuario::class, 'roles_id');
 	}
 }

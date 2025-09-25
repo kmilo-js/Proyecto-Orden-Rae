@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class VentaHasUsuario
  * 
- * @property int $ID_VENTA_ASESOR
+ * @property int $ID_VENTA_USUARIO
  * @property int $venta_id
  * @property int $usuarios_id
  * 
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class VentaHasUsuario extends Model
 {
 	protected $table = 'venta_has_usuarios';
-	protected $primaryKey = 'ID_VENTA_ASESOR';
+	protected $primaryKey = 'ID_VENTA_USUARIO';
 	public $timestamps = false;
 
 	protected $casts = [

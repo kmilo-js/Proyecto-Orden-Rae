@@ -13,10 +13,10 @@ use Illuminate\Database\Eloquent\Model;
  * Class SoportePago
  * 
  * @property int $ID_SOPORTE_PAGO
- * @property Carbon $Hora_pago
- * @property Carbon $Fecha_pago
+ * @property Carbon $Fecha_hora_pago
  * @property float $Total_pago
  * @property string $Soporte_url
+ * @property string $Estado_soporte
  * @property Carbon $Created_at
  * @property Carbon $Updated_at
  * @property int $usuarios_id
@@ -34,8 +34,7 @@ class SoportePago extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'Hora_pago' => 'datetime',
-		'Fecha_pago' => 'datetime',
+		'Fecha_hora_pago' => 'datetime',
 		'Total_pago' => 'float',
 		'Created_at' => 'datetime',
 		'Updated_at' => 'datetime',
@@ -44,10 +43,10 @@ class SoportePago extends Model
 	];
 
 	protected $fillable = [
-		'Hora_pago',
-		'Fecha_pago',
+		'Fecha_hora_pago',
 		'Total_pago',
 		'Soporte_url',
+		'Estado_soporte',
 		'Created_at',
 		'Updated_at',
 		'usuarios_id',

@@ -31,7 +31,7 @@ class InventarioController extends Controller
         return view('inventario.create', [
             'inventario' => null,
             'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
+            'productos' => Producto::orderBy('ID_PRODUCTO')->get(),
         ]);
     }
 
@@ -52,9 +52,7 @@ class InventarioController extends Controller
         return view('inventario.edit', [
             'inventario' => $inventario,
             'usuarios' => Usuario::orderBy('ID_USUARIO')->get(['ID_USUARIO','Nombres','Apellidos']),
-            'productos' => Producto::orderBy('Referencia_producto')->get(['ID_PRODUCTO','Referencia_producto','Categoria_producto']),
-            // Si necesitas lista de inventarios para select, descomenta:
-            // 'inventarios' => Inventario::orderBy('Referencia_producto')->get(['ID_INVENTARIO','Referencia_producto']),
+            'productos' => Producto::orderBy('ID_PRODUCTO')->get(),
         ]);
     }
 

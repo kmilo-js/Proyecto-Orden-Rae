@@ -14,16 +14,18 @@ use Illuminate\Database\Eloquent\Model;
  * Class Producto
  * 
  * @property int $ID_PRODUCTO
+ * @property string $Codigo_producto
  * @property string $Referencia_producto
- * @property string $Categoria_producto
  * @property string $Color_producto
- * @property int $Cantidad_producto
+ * @property float $Precio_producto
+ * @property string $Estado_producto
  * @property Carbon $Created_at
  * @property Carbon $Updated_at
  * @property int $usuarios_id
- * @property int $inventario_id
+ * @property int $categoria_id
  * 
  * @property Usuario $usuario
+ * @property Categoria $categoria
  * @property Inventario $inventario
  * @property Collection|Pedido[] $pedidos
  * @property Collection|Produccion[] $produccions
@@ -38,23 +40,24 @@ class Producto extends Model
 	public $timestamps = true;
 
 	const CREATED_AT = 'Created_at';
-    const UPDATED_AT = 'Updated_at';
+	const UPDATED_AT = 'Updated_at';
 
 	protected $casts = [
-		'Cantidad_producto' => 'int',
+		'Precio_producto' => 'float',
 		'Created_at' => 'datetime',
 		'Updated_at' => 'datetime',
 		'usuarios_id' => 'int',
-		'inventario_id' => 'int'
+		'categoria_id' => 'int'
 	];
 
 	protected $fillable = [
+		'Codigo_producto',
 		'Referencia_producto',
-		'Categoria_producto',
 		'Color_producto',
-		'Cantidad_producto',
+		'Precio_producto',
+		'Estado_producto',
 		'usuarios_id',
-		'inventario_id'
+		'categoria_id'
 	];
 
 	public function usuario()
@@ -62,9 +65,14 @@ class Producto extends Model
 		return $this->belongsTo(Usuario::class, 'usuarios_id');
 	}
 
+	public function categoria()
+	{
+		return $this->belongsTo(Categoria::class);
+	}
+
 	public function inventario()
 	{
-		return $this->belongsTo(Inventario::class, 'inventario_id');
+		return $this->belongsTo(Inventario::class, 'ID_PRODUCTO');
 	}
 
 	public function pedidos()

@@ -75,7 +75,7 @@ class ProductoController extends Controller
             $producto->delete();
             return back()->with('success', 'Producto eliminado exitosamente'); 
             } 
-        catch (\Throwable $prod){
+        catch (\Throwable $e){
             return back()->withErrors('No se puede eliminar: tiene registros relacionados');
             }
     }     

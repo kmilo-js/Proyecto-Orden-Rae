@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $Correo_usuario
  * @property string $Nombre_permisos
  * @property string $Descripcion_permisos
- * @property string $Cargo
+ * @property string $Nombre_rol
  *
  * @package App\Models
  */
@@ -38,6 +38,6 @@ class VRole extends Model
 		'Correo_usuario',
 		'Nombre_permisos',
 		'Descripcion_permisos',
-		'Cargo'
+		'Nombre_rol'
 	];
 }

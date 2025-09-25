@@ -33,12 +33,9 @@
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
-                            <th>Referencia</th>
-                            <th>Categoria</th>
-                            <th>Color</th>
                             <th>Cantidad</th>
-                            <th>Estado del producto</th>
                             <th>Fecha de Creacion</th>
+                            <th>Fecha de Actualización</th>
                             <th>Botón</th>
                         </tr>
                     </thead>
@@ -46,12 +43,9 @@
                         @foreach ($inventario as $items)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
                                 <td class="p-2">{{$items->ID_INVENTARIO}}</td>
-                                <td>{{$items->Referencia_producto}}</td>
-                                <td>{{$items->Categoria_producto}}</td>
-                                <td>{{$items->Color_producto}}</td>
-                                <td>{{$items->Cantidad_producto}}</td>
-                                <td>{{$items->Estado_producto}}</td>
+                                <td>{{$items->Cantidad}}</td>
                                 <td>{{$items->Created_at}}</td>
+                                <td>{{$items->Updated_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
                                     <a href="{{ route('inventario.edit', $items) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">

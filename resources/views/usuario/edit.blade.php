@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Editar Producto') }}
+            {{ __('Editar Usuario') }} <!-- ← Corregido -->
         </h2>
     </x-slot>
 
@@ -16,16 +16,13 @@
                                 @method('PUT')
 
                                 @include('usuario._form', [
-                                    'usuarios' => $usuario,
-                                    'inventario' => $inventario,
                                     'usuario' => $usuario,
-                                    'productos' => $productos,
+                                    'roles' => $roles,
                                 ])
 
                                 <div class="pt-4 flex gap-3">
                                     <button class="px-4 py-2 bg-red-600 text-white rounded">Actualizar</button>
-                                    <a href="{{ route('usuario.index') }}"
-                                        class="px-4 py-2 border rounded">Cancelar</a>
+                                    <a href="{{ route('usuario.index') }}" class="px-4 py-2 border rounded">Cancelar</a>
                                 </div>
                             </form>
                         </div>

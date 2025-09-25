@@ -14,9 +14,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Ventum
  * 
  * @property int $ID_VENTA
- * @property string $Nombre_producto
- * @property string $Categoria_producto
- * @property string $Color_producto
+ * @property Carbon $Fecha_venta
+ * @property float $Total_venta
+ * @property string|null $Estado_venta
  * @property int $pedido_id
  * @property int $fidelizacion_id
  * @property Carbon $created_at
@@ -32,18 +32,20 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Ventum extends Model
 {
-	protected $table = 'venta';
+	protected $table = 'ventum';
 	protected $primaryKey = 'ID_VENTA';
 
 	protected $casts = [
+		'Fecha_venta' => 'datetime',
+		'Total_venta' => 'float',
 		'pedido_id' => 'int',
 		'fidelizacion_id' => 'int'
 	];
 
 	protected $fillable = [
-		'Nombre_producto',
-		'Categoria_producto',
-		'Color_producto',
+		'Fecha_venta',
+		'Total_venta',
+		'Estado_venta',
 		'pedido_id',
 		'fidelizacion_id'
 	];
