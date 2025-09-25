@@ -12,15 +12,16 @@
                     <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
                         <div class="bg-white p-6 shadow sm:rounded-lg">
                             @if ($errors->any())
-    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-        <strong>Errores de validación:</strong>
-        <ul class="list-disc pl-5 mt-2">
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                                    <strong>Errores de validación:</strong>
+                                        <ul class="list-disc pl-5 mt-2">
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                
+                            @endif
                             <form action="{{ route('inventario.update', $inventario) }}" method="POST" class="space-y-6">
                                 @csrf
                                 @method('PUT')
