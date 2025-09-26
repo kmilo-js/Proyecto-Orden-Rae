@@ -101,16 +101,49 @@
                 <div class="contenedor-diapositivas">
 
                     <!-- Imágenes a pantalla completa con número -->
+
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/CamaMontessori4.jpg')}}" style="width:100%">
+                        <img src="{{asset('Img/Sofá7.jpg')}}" style="width:70%">
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Camarotes1.jpg')}}" style="width:100%">
+                        <img src="{{asset('Img/Cama2.jpg')}}" style="width:70%">
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Cama1.jpg')}}" style="width:100%">
+                        <img src="{{asset('Img/Escritorio1.jpg')}}" style="width:70%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Silla2.jpg')}}" style="width:70%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Comedor4.jpg')}}" style="width:50%"> 
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/CamaCunas5.jpg')}}" style="width:70%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Sofá6.jpg')}}" style="width:70%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Cama4.jpg')}}" style="width:60%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Comedor5.jpg')}}" style="width:60%"> 
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/Escritorio2.jpg')}}" style="width:60%">
+                    </div>
+
+                    <div class="diapositiva desvanecer">
+                        <img src="{{asset('Img/MesasCentro6.jpg)}}" style="width:60%">
                     </div>
 
                     <!-- Botones anterior y siguiente -->
@@ -129,9 +162,12 @@
             <figure>
                 <!--<img class="img_categoria" src="Img/catalogo.jpeg" alt="Imagen de categorias">-->
                 <div class="contenedor-imagenes">
-                    <img src="{{asset('Img/Sofá1.JPG')}}" alt="Imagen Sofá de 2 puestos">
+                    <img src="{{asset('Img/Escritorio1.JPG')}}" alt="Escritorio">
                     <img src="{{asset('Img/Sofá2.JPG')}}" alt="Imagen Sofá de 4 puestos">
-                    <img src="{{asset('Img/Sofá3.JPG')}}" alt="Imagen Sofá de 3 puestos">
+                    <img src="{{asset('Img/Silla3.JPG')}}" alt="Imagen Silla de comedor">
+                    <img src="{{asset('Img/Cama3.JPG')}}" alt="Imagen Cama doble">
+                    <img src="{{asset('Img/CamaCunas6.JPG')}}" alt="Imagen Cama cuna">  
+                    <img src="{{asset('Img/MesasCentro4.JPG')}}" alt="Imagen Mesa de centro redonda">
                 </div>
             </figure>
             <hr>
@@ -140,11 +176,14 @@
             <div class="footer-contenedor">
                 <!-- Contacto -->
                 <div class="footer-col">
-                    <h3>CONTACTO</h3>
+                    <h3> CONTACTO </h3>
                     <hr>
-                    <p>📱 (+57) 319 330 0380</p>
-                    <p>📱 (+57) 316 671 2526</p>
-                    <p>📍 Cra. 13 # 65 - 10, Bogotá</p>
+                    <p> <strong> Teléfono fijo: </strong> 672 0380</p>
+                    <p> <strong> Línea de atención: </strong>  (+57) 316 671 2526</p>
+                    <p> <strong> Whatsapp ventas: </strong>  (+57) 316 671 2526</p>
+                    <p> <strong> Dirección: </strong> Cra. 13 # 65 - 10 Bogotá</p>
+                    <p> <strong> Email: </strong> contacto@lasuperbodega.com</p>
+                    <p> <strong> Horario: </strong> Lunes a Sábado de 9:00 am - 6:00 pm</p>
                 </div>
 
                 <!-- Información -->
@@ -153,6 +192,7 @@
                     <hr>
                     <p><a href="#">Quiénes somos</a></p>
                     <p><a href="#">Términos y condiciones</a></p>
+                    <p><a href="#">Política de privacidad</a></p>
                     <p><a href="#">Preguntas frecuentes</a></p>
                     <p><a href="#">Contacto</a></p>
                 </div>
@@ -161,10 +201,11 @@
                 <div class="footer-col">
                     <h3>MI CUENTA</h3>
                     <hr>
-                    <p><a href="#">Acceder – Registrarse</a></p>
-                    <p><a href="#">Cambiar contraseña</a></p>
-                    <p><a href="#">Pedidos</a></p>
-                    <p><a href="#">Aceptación de términos y condiciones y políticas de datos</a></p>
+                    <p><a href="#">Acceder / Registrarse</a></p>
+                    <p><a href="#">Recuperar / Cambiar contraseña</a></p>
+                    <p><a href="#">Mis pedidos</a></p>
+                    <p><a href="#">Seguimiento de envíos</a></p>
+                    <p><a href="#">Aceptación de términos y condiciones</a></p>
                 </div>
 
                 <!-- Síguenos -->
