@@ -15,7 +15,8 @@ class StoreFidelizacionRequest extends FormRequest
     {
         return [
             'Fecha_de_fidelizacion' => 'required|date',
-            'Total_de_producto' => 'required|integer|min:0',
+            'Puntos_acumulados' => 'required|integer|min:0',
+            'Nivel_fidelizacion' => 'nullable|string|max:50',
             'usuarios_id' => 'required|integer|exists:usuarios,ID_USUARIO',
         ];
     }
@@ -25,9 +26,11 @@ class StoreFidelizacionRequest extends FormRequest
         return [
             'Fecha_de_fidelizacion.required' => 'La fecha de fidelización es obligatoria.',
             'Fecha_de_fidelizacion.date' => 'La fecha de fidelización no es válida.',
-            'Total_de_producto.required' => 'El total de productos es obligatorio.',
-            'Total_de_producto.integer' => 'El total de productos debe ser un número entero.',
-            'Total_de_producto.min' => 'El total de productos no puede ser negativo.',
+            'Puntos_acumulados.required' => 'Los puntos acumulados son obligatorios.',
+            'Puntos_acumulados.integer' => 'Los puntos acumulados deben ser un número entero.',
+            'Puntos_acumulados.min' => 'Los puntos acumulados no pueden ser negativos.',
+            'Nivel_fidelizacion.string' => 'El nivel de fidelización debe ser una cadena de texto.',
+            'Nivel_fidelizacion.max' => 'El nivel de fidelización no puede exceder los 50 caracteres.',
             'usuarios_id.required' => 'Debe seleccionar un usuario.',
             'usuarios_id.integer' => 'El usuario seleccionado no es válido.',
             'usuarios_id.exists' => 'El usuario asignado no existe.',

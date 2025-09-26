@@ -10,12 +10,18 @@
             class="w-full border rounded px-3 py-2" required>
         @error('Fecha_de_fidelizacion')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
     </div>
+    <div>
+        <label class="block text-sm font-medium mb-1">Puntos acumulados *</label>
+        <input type="number" name="Puntos_acumulados" value="{{ $val('Puntos_acumulados') }}"
+            class="w-full border rounded px-3 py-2" min="0" required>
+        @error('Puntos_acumulados')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
+    </div>
 
     <div>
-        <label class="block text-sm font-medium mb-1">Total de producto *</label>
-        <input type="number" name="Total_de_producto" value="{{ $val('Total_de_producto') }}"
-            class="w-full border rounded px-3 py-2" min="0" required>
-        @error('Total_de_producto')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
+        <label class="block text-sm font-medium mb-1">Nivel de fidelización</label>
+        <input type="text" name="Nivel_fidelizacion" value="{{ $val('Nivel_fidelizacion') }}"
+            class="w-full border rounded px-3 py-2" maxlength="50">
+        @error('Nivel_fidelizacion')<p class="text-red-600 text-sm mt-1">{{ $message }}</p>@enderror
     </div>
 
     <div>
@@ -24,7 +30,7 @@
             <option value="">Seleccione un usuario</option>
             @foreach($usuarios as $u)
                 <option value="{{ $u->ID_USUARIO }}" @selected($val('usuarios_id') == $u->ID_USUARIO)>
-                    {{ $u->ID_USUARIO }} {{ $u->Nombres }} {{ $u->Apellidos }}
+                    [{{ $u->ID_USUARIO }}] {{ $u->Nombres }} {{ $u->Apellidos }}
                 </option>
             @endforeach
         </select>

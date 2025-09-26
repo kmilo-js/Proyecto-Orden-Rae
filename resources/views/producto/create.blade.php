@@ -15,9 +15,9 @@
                                 @csrf
                                 @include('producto._form', [
                                     'producto' => null,
-                                    'inventario' => $inventario,
                                     'usuarios' => $usuarios,
                                     'productos' => $productos,
+                                    'categorias' => $categorias,
                                 ])
 
                                 <div class="pt-4 flex gap-3">                                    

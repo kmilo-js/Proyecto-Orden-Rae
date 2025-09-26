@@ -6,7 +6,7 @@
     </x-slot>
 
 <div class="overflow-x-auto">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="mx-auto sm:px-6 lg:px-8">
             <!-- Botón para agregar nuevo producto -->
                 <div class="flex justify-end p-2 mr-4" >                    
                         <!--Url de la ruta para producto.create-->                        
@@ -33,11 +33,14 @@
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
+                            <th>Codigo</th>
                             <th>Referencia</th>
-                            <th>Categoria</th>
                             <th>Color</th>
-                            <th>Cantidad</th>
+                            <th>Precio de producto</th>
+                            <th>Estado de producto</th>
                             <th>Fecha de Creacion</th>
+                            <th>Usuario</th>
+                            <th>Categoria</th>
                             <th>Botón</th>
                         </tr>
                     </thead>
@@ -45,11 +48,14 @@
                         @foreach ($producto as $prod)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
                                 <td class="p-2">{{$prod->ID_PRODUCTO}}</td>
+                                <td>{{$prod->Codigo_producto}}</td>
                                 <td>{{$prod->Referencia_producto}}</td>
-                                <td>{{$prod->Categoria_producto}}</td>
                                 <td>{{$prod->Color_producto}}</td>
-                                <td>{{$prod->Cantidad_producto}}</td>
+                                <td>{{$prod->Precio_producto}}</td>
+                                <td>{{$prod->Estado_producto}}</td>
                                 <td>{{ $prod->Created_at->format('d/m/Y H:i') }}</td>
+                                <td>{{$prod->usuario?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$prod->categorias?->Nombre_categoria ?? 'No asignado'}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
                                     <a href="{{ route('producto.edit', $prod) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">

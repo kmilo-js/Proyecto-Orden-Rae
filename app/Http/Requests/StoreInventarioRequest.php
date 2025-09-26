@@ -16,6 +16,7 @@ class StoreInventarioRequest extends FormRequest
         return [
             'Cantidad_producto' => 'required|integer|min:0',
             'usuarios_id' => 'required|integer|exists:usuarios,ID_USUARIO',
+            'ID_PRODUCTO' => 'required|integer|exists:producto,ID_PRODUCTO',
         ];
     }
 
@@ -28,6 +29,9 @@ class StoreInventarioRequest extends FormRequest
             'usuarios_id.required' => 'Debe seleccionar un usuario.',
             'usuarios_id.integer' => 'El usuario seleccionado no es válido.',
             'usuarios_id.exists' => 'El usuario asignado no existe.',
+            'ID_PRODUCTO.required' => 'Debe seleccionar un producto.',
+            'ID_PRODUCTO.integer' => 'El producto seleccionado no es válido.',
+            'ID_PRODUCTO.exists' => 'El producto asignado no existe.',
         ];
     }
 }
