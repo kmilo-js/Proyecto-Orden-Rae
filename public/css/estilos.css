@@ -149,67 +149,38 @@ body {
 
 /* Contenedor general centrado */
 .contenedor-diapositivas {
-  position: relative;
-  max-width: 1000px;
-  margin: 200px auto auto;
-  overflow: hidden;
+    position: relative;
+    max-width: 1000px;
+    margin: 200px auto auto;
+    overflow: hidden;
 }
 
 /* Todas las imágenes del slideshow */
 .contenedor-diapositivas img {
-  display: block;
-  width: 100%;      /* O puedes usar 80% si quieres que no ocupe todo el ancho */
-  max-height: 500px;
-  object-fit: cover;
-  margin: 0 auto;   /* Centra la imagen horizontalmente */
-  border-radius: 10px;
+    display: block;
+    width: 100%;      /* O puedes usar 80% si quieres que no ocupe todo el ancho */
+    max-height: 500px;
+    object-fit: cover;
+    margin: 0 auto;   /* Centra la imagen horizontalmente */
+    border-radius: 10px;
 }
 
-/* Opcional: efecto de desvanecimiento */
-.desvanecer {
-  animation: fade 1.5s;
-}
 
-@keyframes fade {
-  from {opacity: 0.4}
-  to {opacity: 1}
-}
-
-/* Flechas de navegación */
-.anterior, .siguiente {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: #333;
-  font-weight: bold;
-  font-size: 24px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-.siguiente {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
 
 /* Puntos indicadores */
 .punto {
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 4px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
 .punto:hover {
-  background-color: #717171;
+    background-color: #717171;
 }
 
 
@@ -221,12 +192,9 @@ body {
     transform: translateY(-50%);
     width: auto;
     padding: 16px;
-    color: white;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-    user-select: none;
 }
 
 .siguiente {
@@ -234,9 +202,7 @@ body {
     border-radius: 3px 0 0 3px;
 }
 
-.anterior:hover, .siguiente:hover {
-    background-color: rgba(0,0,0,0.8);
-}
+
 
 /* Puntos indicadores */
 .punto {
@@ -254,16 +220,6 @@ body {
     background-color: #8f6049;
 }
 
-/* Animación de desvanecimiento */
-.desvanecer {
-    animation-name: desvanecer;
-    animation-duration: 1.5s;
-}
-
-@keyframes desvanecer {
-    from {opacity: .4}
-    to {opacity: 1}
-}
 
 /* Línea divisoria */
 hr  {
