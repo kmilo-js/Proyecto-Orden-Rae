@@ -13,6 +13,9 @@ use App\Models\Fidelizacion;
 use App\Http\Controllers\Usuario\UsuariosController;
 use App\Models\Usuario;
 
+use App\Http\Controllers\Produccion\ProduccionController;
+use App\Models\Produccion;
+
 //Pagina Principal
 Route::get('/', function () {
     return view('welcome');
@@ -58,6 +61,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('usuario', UsuariosController::class)
 ->names('usuario');
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
+->resource('produccion', ProduccionController::class)
+->names('produccion');
 
 //Ruta del dashboard
 Route::middleware([
