@@ -143,10 +143,6 @@
                         <img src="{{asset('Img/Escritorio2.jpg')}}" style="width:70%">
                     </div>
 
-                    <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/MesasCentro1.jpg')}}" style="width:70%">
-                    </div>
-
                     <!-- Botones anterior y siguiente -->
                     <a class="anterior" onclick="cambiarDiapositiva(-1)">&#10094;</a>
                     <a class="siguiente" onclick="cambiarDiapositiva(1)">&#10095;</a>
@@ -167,13 +163,13 @@
                     <span class="punto" onclick="diapositivaActual(11)"></span>
                 </div>
             </figure>  
-            <!-- Imagen destacada de categorias -->
-            <figure>
+                
                 <section class="py-10 bg-gray-50">
                     <div class="container mx-auto px-4">
-                        <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">NUEVOS PRODUCTOS</h2>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">PRODUCTOS DESTACADOS</h2>
 
+                    <!-- Contenedor vertical -->
+                    <div class="flex flex-col space-y-6">
                             <!-- Producto 1 -->
                             <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
                                 <img src="{{ asset('Img/Escritorio2.jpg') }}" alt="Escritorio" class="w-full h-48 object-cover">
