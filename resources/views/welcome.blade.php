@@ -143,7 +143,7 @@
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/MesasCentro6.jpg)}}" style="width:60%">
+                        <img src="{{asset('Img/MesasCentro6.jpg')}}" style="width:60%">
                     </div>
 
                     <!-- Botones anterior y siguiente -->
@@ -156,18 +156,26 @@
                     <span class="punto" onclick="diapositivaActual(1)"></span>
                     <span class="punto" onclick="diapositivaActual(2)"></span>
                     <span class="punto" onclick="diapositivaActual(3)"></span>
+                    <span class="punto" onclick="diapositivaActual(4)"></span>
+                    <span class="punto" onclick="diapositivaActual(5)"></span>
+                    <span class="punto" onclick="diapositivaActual(6)"></span>
+                    <span class="punto" onclick="diapositivaActual(7)"></span>
+                    <span class="punto" onclick="diapositivaActual(8)"></span>
+                    <span class="punto" onclick="diapositivaActual(9)"></span>
+                    <span class="punto" onclick="diapositivaActual(10)"></span>
+                    <span class="punto" onclick="diapositivaActual(11)"></span>
                 </div>
             </figure>  
             <!-- Imagen destacada de categorias -->
             <figure>
                 <!--<img class="img_categoria" src="Img/catalogo.jpeg" alt="Imagen de categorias">-->
                 <div class="contenedor-imagenes">
-                    <img src="{{asset('Img/Escritorio1.JPG')}}" alt="Escritorio">
-                    <img src="{{asset('Img/Sofá2.JPG')}}" alt="Imagen Sofá de 4 puestos">
-                    <img src="{{asset('Img/Silla3.JPG')}}" alt="Imagen Silla de comedor">
-                    <img src="{{asset('Img/Cama3.JPG')}}" alt="Imagen Cama doble">
-                    <img src="{{asset('Img/CamaCunas6.JPG')}}" alt="Imagen Cama cuna">  
-                    <img src="{{asset('Img/MesasCentro4.JPG')}}" alt="Imagen Mesa de centro redonda">
+                    <img src="{{asset('Img/Escritorio1.jpg')}}" alt="Escritorio">
+                    <img src="{{asset('Img/Sofá2.jpg')}}" alt="Imagen Sofá de 4 puestos">
+                    <img src="{{asset('Img/Silla3.jpg')}}" alt="Imagen Silla de comedor">
+                    <img src="{{asset('Img/Cama3.jpg')}}" alt="Imagen Cama doble">
+                    <img src="{{asset('Img/CamaCunas6.jpg')}}" alt="Imagen Cama cuna">  
+                    <img src="{{asset('Img/MesasCentro4.jpg')}}" alt="Imagen Mesa de centro redonda">
                 </div>
             </figure>
             <hr>
