@@ -29,7 +29,7 @@
                 <!-- Logo del sitio -->
                 <div>
                     <a href="http://127.0.0.1:8000/" >
-                        <img src="{{asset('Img/Logo1-orden.png')}}" class="logo_principal" alt="Logo Orden Rae" />
+                        <img src="{{asset('Img/Logo3-orden.png')}}" class="logo_principal" alt="Logo Orden Rae" />
                     </a>
                 </div>
                 <!-- Buscador -->
@@ -46,11 +46,11 @@
                     <!-- Botones de carrito y perfil -->
                 <div class="botones">
                     <a href="{{ route('carro-compra') }}" class="icono-carrito">
-                        <img src="{{asset('Img/CarritoCompra.png')}}" alt="Carrito" class="icono-img">
+                        <img src="{{asset('Img/CarritoCompra2.png')}}" alt="Carrito" class="icono-img">
                     </a>
                     <div class="menu-usuario">
                         <a href="#" class="icono-usuario">
-                            <img src="{{asset('Img/usuario.png')}}" alt="Usuario" class="icono-img">
+                            <img src="{{asset('Img/usuario2.png')}}" alt="Usuario" class="icono-img">
                         </a>
                         @if (Route::has('login'))
                             <div class="submenu">
@@ -83,11 +83,11 @@
                     <div>
                         <!-- Menú de navegación con enlaces -->
                         <nav class="navegacion">
-                            <a href="http://127.0.0.1:8000/" class="home" aria-label="Ir a la página principal">Home</a>
-                            <a href="{{ route('productos') }}" class="productos" aria-label="Ver productos">Productos</a>
-                            <a href="{{ route('promociones') }}" class="promociones" aria-label="Ver promociones">Promociones</a>
-                            <a href="{{ route('contacto') }}" class="contacto" aria-label="Contactar con nosotros">Contacto</a>
-                            <a href="{{ route('cotiza') }}" class="boton_rojo" aria-label="Cotiza aquí">COTICE AQUI</a>
+                            <a href="http://127.0.0.1:8000/" class="home" aria-label="Ir a la página principal">HOME</a>
+                            <a href="{{ route('productos') }}" class="productos" aria-label="Ver productos">PRODUCTOS</a>
+                            <a href="{{ route('promociones') }}" class="promociones" aria-label="Ver promociones">PROMOCIONES</a>
+                            <a href="{{ route('contacto') }}" class="contacto" aria-label="Contactar con nosotros">CONTACTO</a>
+                            <a href="{{ route('cotiza') }}" class="boton_rojo" aria-label="Cotiza aquí">COTICE AQUÍ</a>
                         </nav>
                     </div>
                 </section>                        
@@ -98,7 +98,8 @@
             <!-- Imagen destacada de promociones o descuentos -->
             <figure>
                 <!-- Contenedor del slideshow -->
-                <div class="contenedor-diapositivas">
+                <div class="contenedor-diapositivas relative h-96 md:h-[500px] overflow-hidden">
+                    <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">PRODUCTOS DESTACADOS</h2>
 
                     <!-- Imágenes a pantalla completa con número -->
 
@@ -111,7 +112,7 @@
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Escritorio1.jpg')}}" style="width:70%">
+                        <img src="{{asset('Img/Escritorio0.2.jpg')}}" style="width:70%">
                     </div>
 
                     <div class="diapositiva desvanecer">
@@ -119,11 +120,11 @@
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Comedor4.jpg')}}" style="width:50%"> 
+                        <img src="{{asset('Img/Comedor6.jpg')}}" style="width:70%"> 
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/CamaCunas5.jpg')}}" style="width:70%">
+                        <img src="{{asset('Img/CamaCunas6.jpg')}}" style="width:70%">
                     </div>
 
                     <div class="diapositiva desvanecer">
@@ -131,19 +132,15 @@
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Cama4.jpg')}}" style="width:60%">
+                        <img src="{{asset('Img/Cama5.jpg')}}" style="width:70%">
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Comedor5.jpg')}}" style="width:60%"> 
+                        <img src="{{asset('Img/Comedor5.jpg')}}" style="width:70%"> 
                     </div>
 
                     <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/Escritorio2.jpg')}}" style="width:60%">
-                    </div>
-
-                    <div class="diapositiva desvanecer">
-                        <img src="{{asset('Img/MesasCentro6.jpg')}}" style="width:60%">
+                        <img src="{{asset('Img/Escritorio2.jpg')}}" style="width:70%">
                     </div>
 
                     <!-- Botones anterior y siguiente -->
@@ -166,65 +163,133 @@
                     <span class="punto" onclick="diapositivaActual(11)"></span>
                 </div>
             </figure>  
-            <!-- Imagen destacada de categorias -->
-            <figure>
-                <!--<img class="img_categoria" src="Img/catalogo.jpeg" alt="Imagen de categorias">-->
-                <div class="contenedor-imagenes">
-                    <img src="{{asset('Img/Escritorio1.jpg')}}" alt="Escritorio">
-                    <img src="{{asset('Img/Sofá2.jpg')}}" alt="Imagen Sofá de 4 puestos">
-                    <img src="{{asset('Img/Silla3.jpg')}}" alt="Imagen Silla de comedor">
-                    <img src="{{asset('Img/Cama3.jpg')}}" alt="Imagen Cama doble">
-                    <img src="{{asset('Img/CamaCunas6.jpg')}}" alt="Imagen Cama cuna">  
-                    <img src="{{asset('Img/MesasCentro4.jpg')}}" alt="Imagen Mesa de centro redonda">
-                </div>
-            </figure>
-            <hr>
-        </main>
-        <footer class="footer">
-            <div class="footer-contenedor">
-                <!-- Contacto -->
-                <div class="footer-col">
-                    <h3> CONTACTO </h3>
-                    <hr>
-                    <p> <strong> Teléfono fijo: </strong> 672 0380</p>
-                    <p> <strong> Línea de atención: </strong>  (+57) 316 671 2526</p>
-                    <p> <strong> Whatsapp ventas: </strong>  (+57) 316 671 2526</p>
-                    <p> <strong> Dirección: </strong> Cra. 13 # 65 - 10 Bogotá</p>
-                    <p> <strong> Email: </strong> contacto@lasuperbodega.com</p>
-                    <p> <strong> Horario: </strong> Lunes a Sábado de 9:00 am - 6:00 pm</p>
-                </div>
+                
+                <section class="py-10 bg-gray-50">
+                    <div class="container mx-auto px-4">
+                    <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">PRODUCTOS DESTACADOS</h2>
 
-                <!-- Información -->
-                <div class="footer-col">
-                    <h3>INFORMACIÓN</h3>
-                    <hr>
-                    <p><a href="#">Quiénes somos</a></p>
-                    <p><a href="#">Términos y condiciones</a></p>
-                    <p><a href="#">Política de privacidad</a></p>
-                    <p><a href="#">Preguntas frecuentes</a></p>
-                    <p><a href="#">Contacto</a></p>
-                </div>
+                    <!-- Contenedor vertical -->
+                    <div class="flex flex-col space-y-6">
+                            <!-- Producto 1 -->
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                                <img src="{{ asset('Img/Escritorio2.jpg') }}" alt="Escritorio" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <p class="text-xs text-gray-500 uppercase">NUEVOS LANZAMIENTOS EN ESCRITORES</p>
+                                    <h3 class="font-semibold mt-1">ESCRITORIO MODERNO.</h3>
+                                    <p class="text-lg font-bold text-[#FF2D20] mt-2">DESDE $674.000 IVA INCLUIDO</p>
+                                    <div class="mt-4 flex space-x-2">
+                                        <button class="bg-[#7A4B32] text-white px-6 py-2 text-sm font-medium rounded-lg hover:bg-[#6A3F2A] transition">SELECCIONAR OPCIONES</button>
+                                        <button class="bg-gray-200 px-3 py-1 text-sm font-medium rounded hover:bg-gray-300">🔗</button>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Mi cuenta -->
-                <div class="footer-col">
-                    <h3>MI CUENTA</h3>
-                    <hr>
-                    <p><a href="#">Acceder / Registrarse</a></p>
-                    <p><a href="#">Recuperar / Cambiar contraseña</a></p>
-                    <p><a href="#">Mis pedidos</a></p>
-                    <p><a href="#">Seguimiento de envíos</a></p>
-                    <p><a href="#">Aceptación de términos y condiciones</a></p>
-                </div>
+                            <!-- Producto 2 -->
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                                <img src="{{ asset('Img/Sofá2.jpg') }}" alt="Sofá de 4 puestos" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <p class="text-xs text-gray-500 uppercase">NUEVOS LANZAMIENTOS EN SALAS</p>
+                                    <h3 class="font-semibold mt-1">SOFÁ FATIMA.</h3>
+                                    <p class="text-lg font-bold text-[#FF2D20] mt-2">$2.229.000 IVA INCLUIDO</p>
+                                    <div class="mt-4 flex space-x-2">
+                                        <button class="bg-[#7A4B32] text-white px-6 py-2 text-sm font-medium rounded-lg hover:bg-[#6A3F2A] transition">AÑADIR AL CARRITO</button>
+                                        <button class="bg-gray-200 px-3 py-1 text-sm font-medium rounded hover:bg-gray-300">🔗</button>
+                                    </div>
+                                </div>
+                            </div>
 
-                <!-- Síguenos -->
-                <div class="footer-col">
-                    <h3>SÍGUENOS</h3>
-                    <hr>
-                    <div class="footer-redes">
-                        <a href="#"><img src="{{asset('Img/Instagram (2).png')}}" alt="Instagram" /></a>
-                        <a href="#"><img src="{{asset('Img/Facebook (2).png')}}" alt="Facebook" /></a>
+                            <!-- Producto 3 -->
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                                <img src="{{ asset('Img/Cama5.jpg') }}" alt="Cama doble" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <p class="text-xs text-gray-500 uppercase">NUEVOS LANZAMIENTOS DE CAMAS 120 / 140 / 160</p>
+                                    <h3 class="font-semibold mt-1">CAMA ALPES.</h3>
+                                    <p class="text-lg font-bold text-[#FF2D20] mt-2">DESDE $1.113.000 IVA INCLUIDO</p>
+                                    <div class="mt-4">
+                                        <button class="bg-[#7A4B32] text-white px-6 py-2 text-sm font-medium rounded-lg hover:bg-[#6A3F2A] transition">SELECCIONAR OPCIONES</button>
+                                        <button class="bg-gray-200 px-3 py-1 text-sm font-medium rounded hover:bg-gray-300">🔗</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Producto 4 -->
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+                                <img src="{{ asset('Img/Silla3.jpg') }}" alt="Cama cuna" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <p class="text-xs text-gray-500 uppercase">NUEVOS LANZAMIENTOS DE SILLAS</p>
+                                    <h3 class="font-semibold mt-1">SILLA POLTRONA.</h3>
+                                    <p class="text-lg font-bold text-[#FF2D20] mt-2"> $539.000 IVA INCLUIDO</p>
+                                    <div class="mt-4">
+                                        <button class="bg-[#7A4B32] text-white px-6 py-2 text-sm font-medium rounded-lg hover:bg-[#6A3F2A] transition">AÑADIR AL CARRITO</button>
+                                        <button class="bg-gray-200 px-3 py-1 text-sm font-medium rounded hover:bg-gray-300">🔗</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </section>
+            </figure>
+
+        <footer class="bg-[#efe7dd] text-black pt-12 pb-6">
+            <div class="container mx-auto px-6 text-center">
+                
+                <!-- Logo centrado -->
+                <div class="flex justify-center mb-6">
+                    <img src="{{ asset('Img/order_rae.png') }}" alt="ORDER R.A.E" class="h-12 w-auto">
                 </div>
+
+                <!-- Enlaces rápidos -->
+                <div class="mb-6 space-x-4 text-base">
+                    <a href="#" class="text-base-700 hover:text-black">Quiénes somos</a>  |
+                    <a href="#" class="text-base-700 hover:text-black">Términos y condiciones</a>  |
+                    <a href="#" class="text-base-700 hover:text-black">Preguntas Frecuentes</a>  
+                </div>
+
+                <div class="mb-6 space-x-4 text-base">
+                    <a href="#" class="text-base-700 hover:text-black">Garantía</a>  |
+                    <a href="#" class="text-base-700 hover:text-black">Mis pedidos</a>  |
+                    <a href="#" class="text-base-700 hover:text-black">Seguimiento de envíos</a> |
+                    <a href="#" class="text-base-700 hover:text-black">PQRS</a>  
+                </div>
+
+                <!-- Sedes -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">SEDE</h3>
+                    <p class="text-base text-base-700">Carrera 13 # 65 - 10 | Bogotá - Colombia</p>
+                </div>
+
+                <!-- Horarios -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">HORARIOS</h3>
+                    <p class="text-base text-base-700">Lunes a Sábado 9AM – 6PM | Domingos y Festivos 10AM – 2PM</p>
+                </div>
+
+                <!-- Contacto -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold mb-2">CONTACTO</h3>
+                    <p class="text-base text-base-700">
+                        <span class="inline-block mr-2">📞 TELÉFONO FIJO:</span> 797 7090  |
+                        <span class="inline-block mr-2">📞 VENTAS WHATSAPP:</span> (+57) 316 671 2526  |
+                        <span class="inline-block mx-2">📞 SERVICIO AL CLIENTE:</span> (+57) 316 671 2526 
+                    </p>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="mb-4">
+                    <p class="text-base text-xl-700 inline-block mr-2">SÍGUENOS EN:</p>
+                    <a href="#" class="inline-block mx-2">
+                        <img src="{{ asset('Img/Facebook1.png') }}" alt="Facebook" class="h-6 w-6">
+                    </a>
+                    <a href="#" class="inline-block mx-2">
+                        <img src="{{ asset('Img/Instagram1.png') }}" alt="Instagram" class="h-6 w-6">
+                    </a>
+                </div>
+
+                <!-- Copyright -->
+                <div class="border-t border-gray-300 mt-6 pt-4 text-xs text-gray-600">
+                    &copy; {{ date('Y') }} ORDER RAE. Todos los derechos reservados.
+                </div>
+
             </div>
         </footer>
     </body>
