@@ -17,6 +17,7 @@ use App\Models\Usuario;
 use App\Http\Controllers\Produccion\ProduccionController;
 use App\Models\Produccion;
 
+use App\Http\Controllers\DashboardController;
 
 //Pagina Principal
 Route::get('/', function () {
@@ -72,9 +73,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
