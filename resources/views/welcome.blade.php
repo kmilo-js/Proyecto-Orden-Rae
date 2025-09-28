@@ -166,10 +166,10 @@
                 
                 <section class="py-10 bg-gray-50">
                     <div class="container mx-auto px-4">
-                    <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">PRODUCTOS DESTACADOS</h2>
+                    <h2 class="text-2xl font-bold mb-6 text-[#7A4B32]">NUEVOS PRODUCTOS</h2>
 
                     <!-- Contenedor vertical -->
-                    <div class="flex flex-col space-y-6">
+                    <div class="flex flex-row flex-wrap gap-10 justify-center">
                             <!-- Producto 1 -->
                             <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
                                 <img src="{{ asset('Img/Escritorio2.jpg') }}" alt="Escritorio" class="w-full h-48 object-cover">
@@ -229,6 +229,7 @@
                     </div>
                 </section>
             </figure>
+            </main>
 
         <footer class="bg-[#efe7dd] text-black pt-12 pb-6">
             <div class="container mx-auto px-6 text-center">

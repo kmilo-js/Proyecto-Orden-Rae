@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Producto;
+
 use App\Http\Controllers\Producto\ProductoController;
+use App\Models\Producto;
 
 use App\Http\Controllers\Inventario\InventarioController;
 use App\Models\Inventario;
@@ -15,6 +16,7 @@ use App\Models\Usuario;
 
 use App\Http\Controllers\Produccion\ProduccionController;
 use App\Models\Produccion;
+
 
 //Pagina Principal
 Route::get('/', function () {
