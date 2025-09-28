@@ -1,7 +1,8 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     border-top: 5px solid #f0e7db;
-    margin: 0; /* Ajusta según el alto de tu barra */
+    margin: 0;
+    padding-top: 120px; /* Ajusta según el alto de tu barra */
 }
 
 /* -------- BARRA SUPERIOR (HEADER) -------- */
@@ -149,10 +150,10 @@ body {
 
 /* Contenedor general centrado */
 .contenedor-diapositivas {
-    position: relative;
-    max-width: 1000px;
-    margin: 200px auto auto;
-    overflow: hidden;
+  position: relative;
+  max-width: 800px;
+  margin: 60px auto 0 auto;
+  overflow: hidden;
 }
 
 /* Todas las imágenes del slideshow */
@@ -278,7 +279,6 @@ hr  {
 /* ---------- Galería de imágenes ---------- */
 .contenedor-imagenes{
     display: flex;
-    padding-top: 10px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
@@ -693,4 +693,3 @@ hr  {
     font-size: 14px;
 }
 }
-

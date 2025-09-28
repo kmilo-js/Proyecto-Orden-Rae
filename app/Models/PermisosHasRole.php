@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class PermisosHasRole
  * 
- * @property int $ID_PERMISOS_ROL
+ * @property int $ID_PERMISO_ROL
  * @property int $permisos_id
  * @property int $roles_id
  * 
@@ -23,7 +23,7 @@ use Illuminate\Database\Eloquent\Model;
 class PermisosHasRole extends Model
 {
 	protected $table = 'permisos_has_roles';
-	protected $primaryKey = 'ID_PERMISOS_ROL';
+	protected $primaryKey = 'ID_PERMISO_ROL';
 	public $timestamps = false;
 
 	protected $casts = [

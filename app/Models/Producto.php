@@ -9,7 +9,6 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Categorias;
 
 /**
  * Class Producto
@@ -26,8 +25,8 @@ use App\Models\Categorias;
  * @property int $categoria_id
  * 
  * @property Usuario $usuario
- * @property Categoria $categorias
- * @property Inventario $inventario
+ * @property Categoria $categoria
+ * @property Collection|Inventario[] $inventarios
  * @property Collection|Pedido[] $pedidos
  * @property Collection|Produccion[] $produccions
  * @property Collection|ProductoHasVentum[] $producto_has_venta
@@ -38,10 +37,7 @@ class Producto extends Model
 {
 	protected $table = 'producto';
 	protected $primaryKey = 'ID_PRODUCTO';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'Precio_producto' => 'float',
@@ -57,8 +53,10 @@ class Producto extends Model
 		'Color_producto',
 		'Precio_producto',
 		'Estado_producto',
-		'usuarios_id',
-		'categoria_id'
+		'Created_at',
+		'Updated_at',
+		'usuarios_id',  // FK → Usuario
+		'categoria_id'  // FK → Categoria
 	];
 
 	public function usuario()
@@ -66,14 +64,14 @@ class Producto extends Model
 		return $this->belongsTo(Usuario::class, 'usuarios_id');
 	}
 
-	public function categorias()
+	public function categoria()
 	{
-		return $this->belongsTo(Categorias::class, 'categoria_id');
+		return $this->belongsTo(Categoria::class);
 	}
 
-	public function inventario()
+	public function inventarios()
 	{
-		return $this->belongsTo(Inventario::class, 'ID_PRODUCTO');
+		return $this->hasMany(Inventario::class, 'ID_PRODUCTO');
 	}
 
 	public function pedidos()

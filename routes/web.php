@@ -17,20 +17,22 @@ use App\Models\Usuario;
 use App\Http\Controllers\Produccion\ProduccionController;
 use App\Models\Produccion;
 
+use App\Http\Controllers\Venta\VentaController;
+use App\Models\Venta;
+
 use App\Http\Controllers\DashboardController;
 
 //Pagina Principal
 Route::get('/', function () {
     return view('welcome');
 });
-// Rutas de las páginas
-Route::get('/carro-compra', function () {
-    return view('pages.carro_compra');
-})->name('carro-compra');
 
-Route::get('/contacto', function () {
-    return view('pages.contacto');
-})->name('contacto');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('producto', ProductoController::class);
+    Route::resource('venta', VentaController::class)->parameters([
+    'venta' => 'venta'
+    ]);
+});
 
 Route::get('/cotiza', function () {
     return view('pages.cotiza');

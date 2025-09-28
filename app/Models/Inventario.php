@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $usuarios_id
  * 
  * @property Usuario $usuario
- * @property Producto|null $producto
+ * @property Producto $producto
  *
  * @package App\Models
  */
@@ -28,10 +28,7 @@ class Inventario extends Model
 {
 	protected $table = 'inventario';
 	protected $primaryKey = 'ID_INVENTARIO';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'ID_PRODUCTO' => 'int',
@@ -42,9 +39,11 @@ class Inventario extends Model
 	];
 
 	protected $fillable = [
-		'ID_PRODUCTO',
-		'Cantidad',
-		'usuarios_id'
+		'Referencia_producto',
+    	'Categoria_producto',
+    	'Color_producto',
+    	'Cantidad_producto',
+    	'Estado_producto',
 	];
 
 	public function usuario()
@@ -54,6 +53,6 @@ class Inventario extends Model
 
 	public function producto()
 	{
-		return $this->hasOne(Producto::class, 'ID_PRODUCTO');
+		return $this->belongsTo(Producto::class, 'ID_PRODUCTO');
 	}
 }

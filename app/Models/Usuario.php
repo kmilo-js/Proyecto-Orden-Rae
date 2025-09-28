@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon $Updated_at
  * @property int $roles_id
  * 
- * @property Role|null $role
+ * @property Role $role
  * @property Collection|Fidelizacion[] $fidelizacions
  * @property Collection|Inventario[] $inventarios
  * @property Collection|Produccion[] $produccions
@@ -41,10 +41,7 @@ class Usuario extends Model
 {
 	protected $table = 'usuarios';
 	protected $primaryKey = 'ID_USUARIO';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'Documento' => 'int',
@@ -66,12 +63,19 @@ class Usuario extends Model
 		'Genero',
 		'Telefono',
 		'Estado',
+		'Created_at',
+		'Updated_at',
 		'roles_id'
 	];
 
+	public function getNombreCompletoAttribute()
+	{
+    return trim("{$this->Nombres} {$this->Apellidos}");
+	}
+
 	public function role()
 	{
-		return $this->belongsTo(Role::class, 'roles_id', 'ID_ROL');
+		return $this->belongsTo(Role::class, 'roles_id');
 	}
 
 	public function fidelizacions()
@@ -110,4 +114,3 @@ class Usuario extends Model
 		return $this->hasMany(VentaHasUsuario::class, 'usuarios_id');
 	}
 }
-

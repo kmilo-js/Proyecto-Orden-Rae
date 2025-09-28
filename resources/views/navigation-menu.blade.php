@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-16 w-auto" />
+                        <x-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
@@ -15,32 +15,15 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Inicio') }}
                     </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('usuario.index') }}" :active="request()->routeIs('usuario.*')">
-                        {{ __('Usuarios') }}
-                    </x-nav-link>
-                </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    
                     <x-nav-link href="{{ route('producto.index') }}" :active="request()->routeIs('producto.*')">
                         {{ __('Productos') }}
                     </x-nav-link>
-                </div>
-                
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('inventario.index') }}" :active="request()->routeIs('inventario.*')">
-                        {{ __('Inventario') }}
+
+                    <x-nav-link href="{{ route('venta.index') }}" :active="request()->routeIs('venta.*')">
+                        {{ __('Ventas') }}
                     </x-nav-link>
                 </div>
-
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('fidelizacion.index') }}" :active="request()->routeIs('fidelizacion.*')">
-                        {{ __('Fidelización') }}
-                    </x-nav-link>
-                </div>
-
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link href="{{ route('produccion.index') }}" :active="request()->routeIs('produccion.*')">
                         {{ __('Producción') }}
