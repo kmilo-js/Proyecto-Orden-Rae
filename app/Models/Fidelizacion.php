@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $ID_FIDELIZACION
  * @property Carbon $Fecha_de_fidelizacion
  * @property int $Puntos_acumulados
+ * @property string|null $Nivel_fidelizacion
  * @property Carbon $Created_at
  * @property Carbon $Updated_at
  * @property int $usuarios_id
- * @property string|null $Nivel_fidelizacion
  * 
  * @property Usuario $usuario
  * @property Collection|Ventum[] $venta
@@ -30,10 +30,7 @@ class Fidelizacion extends Model
 {
 	protected $table = 'fidelizacion';
 	protected $primaryKey = 'ID_FIDELIZACION';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'Fecha_de_fidelizacion' => 'datetime',
@@ -46,8 +43,10 @@ class Fidelizacion extends Model
 	protected $fillable = [
 		'Fecha_de_fidelizacion',
 		'Puntos_acumulados',
-		'usuarios_id',
-		'Nivel_fidelizacion'
+		'Nivel_fidelizacion',
+		'Created_at',
+		'Updated_at',
+		'usuarios_id'
 	];
 
 	public function usuario()
@@ -57,6 +56,6 @@ class Fidelizacion extends Model
 
 	public function venta()
 	{
-		return $this->hasMany(Ventum::class);
+		return $this->hasMany(Venta::class);
 	}
 }

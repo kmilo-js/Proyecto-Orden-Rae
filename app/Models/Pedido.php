@@ -32,10 +32,7 @@ class Pedido extends Model
 {
 	protected $table = 'pedido';
 	protected $primaryKey = 'ID_PEDIDO';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'Fecha_de_compra' => 'datetime',
@@ -51,6 +48,8 @@ class Pedido extends Model
 		'Metodo_pago',
 		'Total_de_pago',
 		'Estado_pedido',
+		'Created_at',
+		'Updated_at'
 	];
 
 	public function productos()
@@ -67,6 +66,6 @@ class Pedido extends Model
 
 	public function venta()
 	{
-		return $this->hasMany(Ventum::class);
+		return $this->hasMany(Venta::class);
 	}
 }

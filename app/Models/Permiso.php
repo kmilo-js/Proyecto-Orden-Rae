@@ -34,6 +34,6 @@ class Permiso extends Model
 	public function roles()
 	{
 		return $this->belongsToMany(Role::class, 'permisos_has_roles', 'permisos_id', 'roles_id')
-					->withPivot('ID_PERMISOS_ROL');
+					->withPivot('ID_PERMISO_ROL');
 	}
 }

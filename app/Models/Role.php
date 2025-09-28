@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $ID_ROL
  * @property string $Nombre_rol
  * 
- * @property Usuario $usuario
  * @property Collection|Permiso[] $permisos
  * @property Collection|Usuario[] $usuarios
  *
@@ -31,15 +30,10 @@ class Role extends Model
 		'Nombre_rol'
 	];
 
-	public function usuario()
-	{
-		return $this->belongsTo(Usuario::class, 'roles_id');
-	}
-
 	public function permisos()
 	{
 		return $this->belongsToMany(Permiso::class, 'permisos_has_roles', 'roles_id', 'permisos_id')
-					->withPivot('ID_PERMISOS_ROL');
+					->withPivot('ID_PERMISO_ROL');
 	}
 
 	public function usuarios()

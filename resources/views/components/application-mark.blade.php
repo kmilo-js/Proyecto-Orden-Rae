@@ -1,5 +1,3 @@
-@props(['width' => 150, 'height' => 40])
-
-<img src="{{ asset('Img/Logo1-orden.png') }}" 
-      alt="Logo Orden Rae"
-      {{ $attributes->merge(['width' => $width, 'height' => $height, 'class' => 'logo_principal']) }} />
+<a href="{{ route('dashboard') }}">
+    <img src="{{ asset('img/logo_order.png') }}" alt="logo Order Rae" class="h-12 w-12 rounded-full object-contain">
+</a>

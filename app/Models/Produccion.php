@@ -29,10 +29,7 @@ class Produccion extends Model
 {
 	protected $table = 'produccion';
 	protected $primaryKey = 'ID_PRODUCCION';
-	public $timestamps = true;
-
-	const CREATED_AT = 'Created_at';
-	const UPDATED_AT = 'Updated_at';
+	public $timestamps = false;
 
 	protected $casts = [
 		'Cantidad_producto' => 'int',
@@ -45,6 +42,8 @@ class Produccion extends Model
 	protected $fillable = [
 		'Material_producto',
 		'Cantidad_producto',
+		'Created_at',
+		'Updated_at',
 		'usuarios_id',
 		'producto_id'
 	];
