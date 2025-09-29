@@ -41,7 +41,7 @@ class PedidoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-   public function store(StorePedidoRequest $request)
+    public function store(StorePedidoRequest $request)
 {
     //  Crear el pedido
     $pedido = Pedido::create($request->validated());
