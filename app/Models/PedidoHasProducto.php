@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $ID_PEDIDO_PRODUCTO
  * @property int $pedido_id
  * @property int $producto_id
+ * @property int $Cantidad_solicitada
  * 
  * @property Producto $producto
  * @property Pedido $pedido
@@ -28,12 +29,14 @@ class PedidoHasProducto extends Model
 
 	protected $casts = [
 		'pedido_id' => 'int',
-		'producto_id' => 'int'
+		'producto_id' => 'int',
+		'Cantidad_solicitada' => 'int'
 	];
 
 	protected $fillable = [
 		'pedido_id',
-		'producto_id'
+		'producto_id',
+		'Cantidad_solicitada'
 	];
 
 	public function producto()
