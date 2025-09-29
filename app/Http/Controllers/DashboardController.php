@@ -7,6 +7,8 @@ use App\Models\Producto;
 use App\Models\Inventario;
 use App\Models\Fidelizacion;
 use App\Models\Produccion;
+use App\Models\Pedido;
+use App\Models\Categorias;
 
 class DashboardController extends Controller
 {
@@ -19,6 +21,8 @@ class DashboardController extends Controller
             'inventario'   => Inventario::count(),
             'fidelizacion' => Fidelizacion::count(),
             'produccion'   => Produccion::count(),
+            'pedidos'      => Pedido::count(),
+            'categorias'   => Categorias::count(),
         ];
 
         // Retornar la vista dashboard.blade.php con la variable $counts

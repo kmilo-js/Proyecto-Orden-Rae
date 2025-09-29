@@ -56,7 +56,9 @@
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
-                            <th>Fecha de fidelización</th>
+                            <th>Usuario</th>
+                            <th>Venta</th>
+                            <th>Fecha de fidelizacion</th>
                             <th>Puntos acumulados</th>
                             <th>Nivel de fidelización</th>
                             <th>Fecha de Creación</th>
@@ -67,12 +69,14 @@
                     <tbody>
                         @foreach ($fidelizacion as $usuarios)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
-                                <td class="p-2">{{ $usuarios->ID_FIDELIZACION }}</td>
-                                <td>{{ $usuarios->Fecha_de_fidelizacion }}</td>
-                                <td>{{ $usuarios->Puntos_acumulados }}</td>
-                                <td>{{ $usuarios->Nivel_fidelizacion }}</td>
-                                <td>{{ $usuarios->Created_at?->format('d/m/Y H:i') ?? '—' }}</td>
-                                <td>{{ $usuarios->Updated_at?->format('d/m/Y H:i') ?? '—' }}</td>
+                                <td class="p-2">{{$usuarios->ID_FIDELIZACION}}</td>
+                                <td>{{$usuarios->usuario?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$usuarios->ventum?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$usuarios->Fecha_de_fidelizacion}}</td>
+                                <td>{{$usuarios->Puntos_acumulados}}</td>
+                                <td>{{$usuarios->Nivel_fidelizacion}}</td>
+                                <td>{{$usuarios->Created_at}}</td>
+                                <td>{{$usuarios->Updated_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
                                     <a href="{{ route('fidelizacion.edit', $usuarios) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">

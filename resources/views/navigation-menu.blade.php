@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-16 w-auto" />
+                        <x-application-mark class="block h-20 w-auto rounded-full" />
                     </a>
                 </div>
 
@@ -52,6 +52,12 @@
                         {{ __('Pedido') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('categorias.index') }}" :active="request()->routeIs('categorias*')">
+                        {{ __('Categorías') }}
+                    </x-nav-link>
+                </div>   
                 
             </div>
 
