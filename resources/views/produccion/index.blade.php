@@ -5,11 +5,30 @@
         </h2>
     </x-slot>
 
-<div class="overflow-x-auto">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <!-- Botón para agregar nuevo producto -->
-                <div class="flex justify-end p-2 mr-4" >                    
-                        <!--Url de la ruta para produccion.create-->                        
+    
+    <div class="overflow-x-auto">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            {{-- NOTIFICACIONES  --}}
+            @if(session('Ok'))
+                <div class="mb-6 max-w-lg mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold"> ¡OK!</p>
+                    <p>{{ session('Ok') }}</p>
+                </div>
+            @endif
+
+            @if($errors->any())
+                <div class="mb-6 max-w-lg mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold">¡Error!</p>
+                    <ul class="list-disc list-inside">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+                <!-- Botón para agregar nuevo producto -->
+            <div class="flex justify-end p-2 mr-4" >                    
+                <!--Url de la ruta para produccion.create-->                        
                         <a href="{{ route('produccion.create') }}"
                             class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-white hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 transition ease-in-out duration-150">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +41,6 @@
                             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md mb-4 flex justify-between items-center">
                                 <span>{{ session('success') }}</span>
                                 <button type="button" class="text-green-500 hover:text-green-700 font-bold" onclick="this.parentElement.remove()">
-                                ×
                                 </button>
                             </div>
                         @endif                                       
@@ -32,11 +50,13 @@
                 <table id="produccion" class="w-full text-base border text-center text-gray-500 dark:text-gray-700">
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                            <th class="p-2">Referencia de producto</th>
+                            <th class="p-2">ID</th>
                             <th>Material</th>
                             <th>Cantidad</th>
                             <th>Fecha de creación</th>
                             <td>Fecha de actualización</td>
+                            <td>Usuario</td>
+                            <td>Referencia Producto</td>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -48,6 +68,8 @@
                                 <td>{{$prod->Cantidad_producto}}</td>
                                 <td>{{$prod->Created_at->format('d/m/Y H:i') }}</td>
                                 <td>{{$prod->Updated_at->format('d/m/Y H:i') }}</td>
+                                <td>{{$prod->usuario?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$prod->producto?->Referencia_producto ?? 'No asignado'}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
                                     <a href="{{ route('produccion.edit', $prod) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
@@ -65,7 +87,8 @@
                         @endforeach
                     </tbody>
                 </table>
-            </div>
+            </div>        
+        </div>
     </div>
 </div>
 
