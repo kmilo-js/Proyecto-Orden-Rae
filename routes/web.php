@@ -20,6 +20,13 @@ use App\Models\Produccion;
 use App\Http\Controllers\Venta\VentaController;
 use App\Models\Venta;
 
+use App\Http\Controllers\Pedido\PedidoController;
+use App\Models\Pedido;
+
+use App\Http\Controllers\Categoria\CategoriasController;
+use App\Models\Categorias;
+
+
 use App\Http\Controllers\DashboardController;
 
 //Pagina Principal
@@ -50,6 +57,18 @@ Route::get('/recuperar', function () {
     return view('pages.recuperar');
 })->name('recuperar');
 
+Route::get('/quienes-somos', function () {
+    return view('pages.quienessomos');
+})->name('quienes.somos');
+
+Route::get('/terminos-y-condiciones', function () {
+    return view('pages.terminoscondiciones');
+})->name('terminoscondiciones');
+
+Route::get('/preguntas-frecuentes', function () {
+    return view('pages.preguntasfrecuentes');
+})->name('preguntasfrecuentes');
+
 //Rutas de los controladores
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('producto', ProductoController::class)
@@ -70,6 +89,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('produccion', ProduccionController::class)
 ->names('produccion');
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
+->resource('pedido',PedidoController::class)
+->names('pedido');
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
+->resource('categorias',CategoriasController::class)
+->names('categorias');
 
 //Ruta del dashboard
 Route::middleware([

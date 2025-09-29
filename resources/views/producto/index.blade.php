@@ -5,123 +5,110 @@
         </h2>
     </x-slot>
 
-    <main class="px-4 sm:px-6 lg:px-8 py-6 bg-main min-h-screen">
+    <div class="overflow-x-auto">
+        <div class="mx-auto sm:px-6 lg:px-8">
 
-        <!-- Barra de acciones y búsqueda -->
-        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
-            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-
-                <!-- Botón Nuevo Producto (centrado) -->
-                <div class="mx-auto">
-                    <a href="{{ route('producto.create') }}" class="inline-block px-6 py-2 btn-primary rounded-md font-semibold hover:bg-[#8c5a44] transition">Nuevo Producto</a>
+            <!-- NOTIFICACIONES -->
+            @if(session('Ok'))
+                <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold">¡OK!</p>
+                    <p>{{ session('Ok') }}</p>
                 </div>
-                </div>
-            </div>
-                <!-- Mensaje de éxito -->
-                @if (session('ok'))
-                <div class="mb-4 text-green-600 font-medium text-center">
-                    {{ session('ok') }}
-                </div>
-                @endif
+            @endif
 
-        <!-- Tabla de productos -->
-        <div class="bg-white rounded-lg shadow overflow-hidden">
-            <table id="productos" class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Referencia</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Precio</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Categoría</th>
-                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ($productos as $p)
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $p->ID_PRODUCTO }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $p->Codigo_producto }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $p->Referencia_producto }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${{ number_format($p->Precio_producto, 2) }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $p->categoria?->Nombre_categoria ?? '-' }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                            <a href="{{ route('producto.edit', $p) }}" class="text-blue-600 hover:text-blue-900 mr-2">Editar</a>
-                            <form method="POST" action="{{ route('producto.destroy', $p) }}" style="display:inline" onsubmit="return confirm('¿Eliminar este producto?')">
-                                @csrf @method('DELETE')
-                                <button type="submit" class="text-red-600 hover:text-red-900">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-
-        <!-- LOGO CENTRADO -->
-        <div class="mt-12 flex justify-center">
-            <img src="{{ asset('Img/Logo1 - ORDER RAE.png') }}" alt="Logo ORDER RAE" class="logo-footer">
-        </div>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="bg-main pt-8 pb-6 mt-12 border-t border-line">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Contacto -->
-                <div>
-                    <h3 class="text-sm font-bold text-primary uppercase tracking-wide mb-3">CONTACTO</h3>
-                    <hr class="border-line w-10 mb-4">
-                    <p class="text-sm text-[#5a4031] mb-2">📱 (+57) 319 330 0380</p>
-                    <p class="text-sm text-[#5a4031] mb-2">📱 (+57) 316 671 2526</p>
-                    <p class="text-sm text-[#5a4031]">📍 Cra. 13 # 65 - 10, Bogotá</p>
-                </div>
-
-                <!-- Información -->
-                <div>
-                    <h3 class="text-sm font-bold text-primary uppercase tracking-wide mb-3">INFORMACIÓN</h3>
-                    <hr class="border-line w-10 mb-4">
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Quiénes somos</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Términos y condiciones</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Preguntas frecuentes</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <!-- Mi cuenta -->
-                <div>
-                    <h3 class="text-sm font-bold text-primary uppercase tracking-wide mb-3">MI CUENTA</h3>
-                    <hr class="border-line w-10 mb-4">
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Acceder – Registrarse</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Cambiar contraseña</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Pedidos</a></li>
-                        <li><a href="#" class="text-sm text-[#5a4031] hover:text-primary">Aceptación de términos y condiciones y políticas de datos</a></li>
-                    </ul>
-                </div>
-
-                <!-- Síguenos -->
-                <div>
-                    <h3 class="text-sm font-bold text-primary uppercase tracking-wide mb-3">SÍGUENOS</h3>
-                    <hr class="border-line w-10 mb-4">
-                    <div class="flex space-x-4">
-                        <a href="#" class="hover:scale-110 transition-transform">
-                            <img src="{{ asset('Img/Instagram (2).png') }}" alt="Instagram" class="w-8 h-8 rounded-full p-1 bg-main">
-                        </a>
-                        <a href="#" class="hover:scale-110 transition-transform">
-                            <img src="{{ asset('Img/Facebook (2).png') }}" alt="Facebook" class="w-8 h-8 rounded-full p-1 bg-main">
-                        </a>
+            @if(session('success'))
+                <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md flex justify-between items-start" role="alert">
+                    <div>
+                        <p class="font-bold">¡Éxito!</p>
+                        <p>{{ session('success') }}</p>
                     </div>
+                    <button type="button" class="text-green-500 hover:text-green-700 font-bold text-xl" onclick="this.parentElement.remove()">
+                        ×
+                    </button>
                 </div>
+            @endif
+
+            @if($errors->any())
+                <div class="mb-6 max-w-2xl mx-auto bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-md" role="alert">
+                    <p class="font-bold">¡Error!</p>
+                    <ul class="list-disc list-inside mt-1">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <!-- Botón para agregar nuevo producto -->
+            <div class="flex justify-end p-2 mr-4">
+                <a href="{{ route('producto.create') }}"
+                    class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-white hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus:border-blue-900 focus:ring ring-blue-300 transition ease-in-out duration-150">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                    Nuevo Producto
+                </a>
+            </div>
+
+            <!-- Tabla de productos -->
+            <div>
+                <table id="producto" class="w-full text-base border text-center text-gray-500 dark:text-gray-700">
+                    <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                            <th class="p-2">ID</th>
+                            <th>Codigo</th>
+                            <th>Referencia</th>
+                            <th>Color</th>
+                            <th>Precio de producto</th>
+                            <th>Estado de producto</th>
+                            <th>Fecha de Creacion</th>
+                            <th>Usuario</th>
+                            <th>Categoria</th>
+                            <th>Botón</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($producto as $prod)
+                            <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
+                                <td class="p-2">{{$prod->ID_PRODUCTO}}</td>
+                                <td>{{$prod->Codigo_producto}}</td>
+                                <td>{{$prod->Referencia_producto}}</td>
+                                <td>{{$prod->Color_producto}}</td>
+                                <td>{{$prod->Precio_producto}}</td>
+                                <td>{{$prod->Estado_producto}}</td>
+                                <td>{{ $prod->Created_at->format('d/m/Y H:i') }}</td>
+                                <td>{{$prod->usuario?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$prod->categorias?->Nombre_categoria ?? 'No asignado'}}</td>
+                                <td class="px-6 py-4 gap-2 flex justify-center">
+                                    <a href="{{ route('producto.edit', $prod) }}"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+                                        Editar
+                                    </a>
+                                    <form action="{{ route('producto.destroy', $prod) }}" method="POST"
+                                        class="inline"
+                                        onsubmit="return confirm('¿Deseas eliminar este producto?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- DataTables CDN -->
+    <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('css/datatables.css') }}">
+
+    <!-- jQuery y DataTables JS -->
+>>>>>>> origin/main
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
@@ -131,10 +118,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 
+
+    <!-- Inicialización de DataTable -->
     <script>
         $(function() {
-            $('#productos').DataTable({
-                pageLength: 10,
+            $('#producto').DataTable({
+                pageLength: 20,
                 dom: 'Bfrtip',
                 language: {
                     url: 'https://cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json'
@@ -143,13 +132,4 @@
             });
         });
     </script>
-
-    <style>
-        .bg-main { background-color: #f8f4f1; }
-        .text-dark { color: #333; }
-        .border-line { border-color: #a7927d; }
-        .btn-primary { background-color: #764b36; color: white; }
-        .btn-secondary { background-color: #e0e0e0; color: #333; }
-        .logo-footer { width: 120px; height: auto; }
-    </style>
 </x-app-layout>
