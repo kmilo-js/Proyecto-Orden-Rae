@@ -34,6 +34,7 @@ class Pedido extends Model
 	protected $primaryKey = 'ID_PEDIDO';
 	public $timestamps = true;
 
+
 	const CREATED_AT = 'Created_at';
 	const UPDATED_AT = 'Updated_at';
 
@@ -51,14 +52,19 @@ class Pedido extends Model
 		'Metodo_pago',
 		'Total_de_pago',
 		'Estado_pedido',
+		'Created_at',
+		'Updated_at'
 	];
 
-	public function productos()
-	{
-		return $this->belongsToMany(Producto::class, 'pedido_has_producto')
-					->withPivot('ID_PEDIDO_PRODUCTO');
-	}
-
+public function productos()
+{
+    return $this->belongsToMany(
+        Producto::class,
+        'pedido_has_producto',
+        'pedido_id',
+        'producto_id'
+    )->withPivot('Cantidad_solicitada');
+}
 	public function usuarios()
 	{
 		return $this->belongsToMany(Usuario::class, 'usuarios_has_pedido', 'pedido_id', 'usuarios_id')

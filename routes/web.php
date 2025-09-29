@@ -17,6 +17,9 @@ use App\Models\Usuario;
 use App\Http\Controllers\Produccion\ProduccionController;
 use App\Models\Produccion;
 
+use App\Http\Controllers\Pedido\PedidoController;
+use App\Models\Pedido;
+
 use App\Http\Controllers\DashboardController;
 
 //Pagina Principal
@@ -68,6 +71,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 ->resource('produccion', ProduccionController::class)
 ->names('produccion');
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])
+->resource('pedido',PedidoController::class)
+->names('pedido');
 
 //Ruta del dashboard
 Route::middleware([
