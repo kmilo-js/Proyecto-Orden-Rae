@@ -176,7 +176,7 @@
                 -- Selecciona un estado --
             </option>
             <option value="Cancelado" @selected($val('Estado_pedido') == 'Cancelado')>
-                 Cancelado
+                    Cancelado
             </option>
             <option value="Devuelto" @selected($val('Estado_pedido') == 'Devuelto')>
                     Devuelto

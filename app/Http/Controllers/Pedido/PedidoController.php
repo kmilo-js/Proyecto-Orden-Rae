@@ -41,7 +41,7 @@ class PedidoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePedidoRequest $request)
+   public function store(StorePedidoRequest $request)
 {
     //  Crear el pedido
     $pedido = Pedido::create($request->validated());
@@ -95,7 +95,7 @@ public function update(UpdatePedidoRequest $request, Pedido $pedido)
             $productosConCantidad = [];
             foreach ($request->productos as $item) {
              // Asegurarse de que el producto exista y tenga cantidad
-            if (!empty($item['producto_id']) && !empty($item['cantidad'])) {
+             if (!empty($item['producto_id']) && !empty($item['cantidad'])) {
             $productosConCantidad[$item['producto_id']] = [
                 'Cantidad_solicitada' => $item['cantidad']
             ];
@@ -109,7 +109,8 @@ public function update(UpdatePedidoRequest $request, Pedido $pedido)
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Pedido $pedido)
+
+ public function destroy(Pedido $pedido)
 {
     try {
         // Primero elimina las relaciones (opcional, pero seguro)
@@ -125,4 +126,6 @@ public function update(UpdatePedidoRequest $request, Pedido $pedido)
         return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
     }
 }
+
 }
+
