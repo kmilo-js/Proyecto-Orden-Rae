@@ -241,9 +241,9 @@
 
                 <!-- Enlaces rápidos -->
                 <div class="mb-6 space-x-4 text-base">
-                    <a href="#" class="text-base-700 hover:text-black">Quiénes somos</a>  |
-                    <a href="#" class="text-base-700 hover:text-black">Términos y condiciones</a>  |
-                    <a href="#" class="text-base-700 hover:text-black">Preguntas Frecuentes</a>  
+                    <a href="{{ route('quienes.somos') }}" class="text-base-700 hover:text-black">Quiénes somos</a> |
+                    <a href="{{ route('terminoscondiciones') }}" class="text-base-700 hover:text-black">Terminos y Condiciones</a> |
+                    <a href="{{ route('preguntasfrecuentes') }}" class="text-base-700 hover:text-black">Preguntas Frecuentes</a>
                 </div>
 
                 <div class="mb-6 space-x-4 text-base">

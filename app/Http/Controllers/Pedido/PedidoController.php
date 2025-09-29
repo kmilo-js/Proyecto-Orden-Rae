@@ -109,6 +109,7 @@ public function update(UpdatePedidoRequest $request, Pedido $pedido)
     /**
      * Remove the specified resource from storage.
      */
+
  public function destroy(Pedido $pedido)
 {
     try {
@@ -125,4 +126,6 @@ public function update(UpdatePedidoRequest $request, Pedido $pedido)
         return back()->withErrors('No se puede eliminar: tiene registros relacionados.');
     }
 }
+
 }
+
