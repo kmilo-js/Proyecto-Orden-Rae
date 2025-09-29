@@ -1,5 +1,5 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    <x-application-logo class="block h-52 w-auto mx-auto" />
+    <x-application-logo class="block h-52 w-auto mx-auto rounded-full" />
 
     <h1 class="mt-8 text-2xl md:text-3xl font-semibold text-gray-800 text-center">
         Bienvenido a ORDER R.A.E
@@ -34,6 +34,17 @@
         <a href="{{ route('produccion.index') }}" class="w-40 h-40 flex flex-col items-center justify-center bg-gradient-to-br from-[#7A4B32] to-white rounded-xl shadow hover:from-[#6A3F2A] hover:to-gray-100 transition border border-[#7A4B32]">
             <span class="text-gray-800 font-semibold text-lg">Producción</span>
             <span class="text-gray-700 mt-2 text-xl font-bold">{{ $counts['produccion'] ?? 0 }}</span>
+        </a>
+
+        <!-- Botón cuadrado: Pedidos -->
+        <a href="{{ route('pedido.index') }}" class="w-40 h-40 flex flex-col items-center justify-center bg-gradient-to-br from-[#7A4B32] to-white rounded-xl shadow hover:from-[#6A3F2A] hover:to-gray-100 transition border border-[#7A4B32]">
+            <span class="text-gray-800 font-semibold text-lg">Pedidos</span>
+            <span class="text-gray-700 mt-2 text-xl font-bold">{{ $counts['pedidos'] ?? 0 }}</span>
+        </a>
+        <!-- Botón cuadrado: Categorías -->
+        <a href="{{ route('categorias.index') }}" class="w-40 h-40 flex flex-col items-center justify-center bg-gradient-to-br from-[#7A4B32] to-white rounded-xl shadow hover:from-[#6A3F2A] hover:to-gray-100 transition border border-[#7A4B32]">
+            <span class="text-gray-800 font-semibold text-lg">Categorías</span>
+            <span class="text-gray-700 mt-2 text-xl font-bold">{{ $counts['categorias'] ?? 0 }}</span>
         </a>
     </div>
 </div>

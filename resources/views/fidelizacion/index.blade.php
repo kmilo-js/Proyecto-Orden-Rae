@@ -6,7 +6,7 @@
     </x-slot>
 
 <div class="overflow-x-auto">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+    <div class="mx-auto sm:px-6 lg:px-8">
                         <!-- Botón para agregar nuevo -->
                         <div class="flex justify-end p-2 mr-4">
                             <!--Url de la ruta para fidelizacion.create-->                   
@@ -33,6 +33,8 @@
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
+                            <th>Usuario</th>
+                            <th>Venta</th>
                             <th>Fecha de fidelizacion</th>
                             <th>Puntos acumulados</th>
                             <th>Nivel de fidelización</th>
@@ -45,6 +47,8 @@
                         @foreach ($fidelizacion as $usuarios)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
                                 <td class="p-2">{{$usuarios->ID_FIDELIZACION}}</td>
+                                <td>{{$usuarios->usuario?->Nombres ?? 'No asignado'}}</td>
+                                <td>{{$usuarios->ventum?->Nombres ?? 'No asignado'}}</td>
                                 <td>{{$usuarios->Fecha_de_fidelizacion}}</td>
                                 <td>{{$usuarios->Puntos_acumulados}}</td>
                                 <td>{{$usuarios->Nivel_fidelizacion}}</td>
