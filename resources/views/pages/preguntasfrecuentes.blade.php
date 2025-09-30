@@ -127,7 +127,7 @@ header p {
 <body>
 
 <header>
-  <img src="{{asset('Img/logo_superbodega.jpg')}}" alt="Logo La Super Bodega del Mueble">
+  <img src="{{asset('Img/Logo3-orden.png')}}" alt="Logo La Super Bodega del Mueble">
   <h1>Preguntas Frecuentes</h1>
   <p>Resuelve tus dudas de forma rápida y clara</p>
 </header>

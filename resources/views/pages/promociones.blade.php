@@ -105,7 +105,7 @@
                     <!-- Promoción 2: Comedor -->
                     <article class="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1">
                         <div class="h-56 overflow-hidden">
-                            <img src="{{ asset('Img/Comedor1.jpg') }}" alt="Comedor 6 puestos en promoción" class="w-full h-full object-cover">
+                            <img src="{{ asset('Img/Comedor3.jpeg') }}" alt="Comedor 8 puestos en promoción" class="w-full h-full object-cover">
                         </div>
                         <div class="p-5">
                         <h3 class="text-xl font-semibold text-[#7A4B32] mb-2">🍽 Comedor 6 Puestos</h3>

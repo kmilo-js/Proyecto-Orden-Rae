@@ -9,7 +9,7 @@
         :root {
             --color-principal: #1A1A1A;
             --color-titulo: #3A2E2A;
-            --color-acento: #C2AE92;
+            --color-acento: #3A2E2A;
             --color-fondo: #FDF5E6;
             --color-separador: #E8E2D5;
             --color-sombra: rgba(0,0,0,0.08);
@@ -240,7 +240,7 @@
 
     <header>
         <!-- LOGO -->
-        <img src="{{ asset('Img/logo_superbodega.jpg') }}" alt="Logo La Super Bodega del Mueble">
+        <img src="{{ asset('Img/Logo3-orden.png') }}" alt="Logo La Super Bodega del Mueble">
         <h1 class="hero-title">TÉRMINOS Y CONDICIONES</h1>
         <p class="hero-subtitle">Transparencia y confianza en cada compra</p>
     </header>

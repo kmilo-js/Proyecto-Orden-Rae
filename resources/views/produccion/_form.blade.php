@@ -46,10 +46,9 @@
     <div>
         <label class="block text-sm font-medium mb-1">Producto *</label>
         <select name="producto_id" class="w-full border rounded px-3 py-2" required>
-            <option value="">Seleccione un producto</option>
             @foreach($productos as $p)
                 <option value="{{ $p->ID_PRODUCTO }}" @selected($val('productos_id') == $p->ID_PRODUCTO)>
-                    {{ $p->ID_PRODUCTO }} {{ $p->Nombre_producto }}
+                    {{ $p->Referencia_producto }} 
                 </option>
             @endforeach
         </select>
