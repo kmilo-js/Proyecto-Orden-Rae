@@ -29,6 +29,16 @@
             color: var(--color-texto);
             line-height: 1.6;
         }
+
+
+        /* --- Hero Section (SOLO IMAGEN) --- */
+        .hero-quienes {
+            height: 10px;
+            background-image: url("{{asset('Img/quieness.jpg')}}");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
         
         /* --- Título Principal (Fino y Elegante) --- */
         .hero-title-container {
@@ -166,13 +176,7 @@
 
         <section class="seccion-texto">
             <h2>Nuestra Historia: Diseño para Cada Espacio del Hogar</h2>
-            <p>
-                Visión Muebles se fundó en 2015 con la ambición de ser la solución integral de mobiliario para
-                el hogar moderno. Nuestra colección va más allá de un solo ambiente, nos especializamos en la 
-                fabricación de piezas que van desde elegantes comedores y salones, hasta mobiliario de oficina
-                ergonómico y cunas seguras y de diseño para los más pequeños. Cada producto es una fusión 
-                perfecta entre funcionalidad superior y un diseño moderno y atemporal.
-            </p>
+  
             
             <h2>Excelencia, Artesanía y Confianza</h2>
             <p>
@@ -180,6 +184,9 @@
                 estricto control de calidad y una dedicación artesanal en cada detalle, desde el acabado de la
                 madera de su nuevo comedor hasta el ensamblaje de una cuna. Esta disciplina nos permite 
                 garantizar la máxima satisfacción y confianza en su inversión.
+                Nuestra misión  es ofrecer productos que perduren. El proceso de fabricación está regido por un estricto control de 
+                calidad y una dedicación artesanal en cada detalle, desde el acabado de la madera de su nuevo comedor hasta el ensamblaje 
+                de una cuna. Esta disciplina nos permite garantizar la máxima satisfacción y confianza en su inversión.
             </p>
 
             <h2>Nuestros Pilares</h2>
@@ -202,9 +209,11 @@
         <section class="galeria-quienes">
             <h2>Colecciones que Inspiran</h2>
             <div class="galeria-imagenes">
+
                 <img src="{{asset('Img/Sofá6.jpg')}}" alt="Mueble - Poltrona para Salón">
                 <img src="{{asset('Img/sillaEscritorio1.jpg')}}" alt="Mueble - Mobiliario de Oficina">
                 <img src="{{asset('Img/MesasCentro6.jpg')}}" alt="Mueble - Comedores y Sillas">
+
                 </div>
         </section>
     </main>

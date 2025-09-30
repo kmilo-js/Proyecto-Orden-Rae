@@ -13,7 +13,7 @@
             <input
                 type="date"
                 name="Fecha_de_compra"
-                value="{{ $val('Fecha_de_compra') }}"
+                value="{{ old('Fecha_de_compra', isset($pedido) && $pedido->Fecha_de_compra ? $pedido->Fecha_de_compra->format('Y-m-d') : '') }}"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
                 required>
             @error('Fecha_de_compra')
@@ -31,7 +31,7 @@
             <input
                 type="date"
                 name="Fecha_de_entrega"
-                value="{{ $val('Fecha_de_entrega') }}"
+                <input type="date" name="Fecha_de_entrega" value="{{ old('Fecha_de_entrega', isset($pedido) ? ($pedido->Fecha_de_entrega ? $pedido->Fecha_de_entrega->format('Y-m-d') : '') : '') }}"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm"
                 required
             >
@@ -80,15 +80,17 @@
                     </select>
                 </div>
                 <div>
-                    <input
-                        type="number"
-                        name="productos[{{ $index }}][cantidad]"
-                        value="{{ $item['cantidad'] ?? 1 }}"
-                        min="1"
-                        class="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                        required
-                    >
-                </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-600 mb-1">Cantidad</label>
+                            <input
+                                type="number"
+                                name="productos[{{ $index }}][cantidad]"
+                                value="{{ $item['cantidad'] ?? 1 }}"
+                                min="1"
+                                class="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                required
+                                >
+                    </div>
             </div>
         @endforeach
 
@@ -207,23 +209,25 @@
         <label class="block text-sm font-semibold text-gray-700 mb-2">
             Asignar a usuario <span class="text-red-500">*</span>
         </label>
+       
+
         <select
             name="ID_USUARIO"
             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 shadow-sm bg-white"
-            required
-        >
-            <option value="" disabled {{ !$val('ID_USUARIO') ? 'selected' : '' }}>
-                -- Selecciona un usuario --
-            </option>
-            @foreach ($usuarios as $usuario)
-                <option
-                    value="{{ $usuario->ID_USUARIO }}"
-                    @selected($val('ID_USUARIO') == $usuario->ID_USUARIO)
-                >
-                    [{{ $usuario->ID_USUARIO }}] {{ $usuario->Nombres }} {{ $usuario->Apellidos }}
-                </option>
-            @endforeach
-        </select>
+             required
+>
+        <option value="" disabled selected>
+        -- Selecciona un usuario --
+        </option>
+        @foreach ($usuarios as $usuario)
+        <option
+            value="{{ $usuario->ID_USUARIO }}"
+           @selected($usuario->ID_USUARIO == (isset($pedido) ? ($pedido->usuarios->first()?->ID_USUARIO ?? null) : old('ID_USUARIO')))
+         >
+            [{{ $usuario->ID_USUARIO }}] {{ $usuario->Nombres }} {{ $usuario->Apellidos }}
+        </option>
+    @endforeach
+</select>
         @error('ID_USUARIO')
             <p class="mt-2 text-sm text-red-600 font-medium flex items-center">
                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>

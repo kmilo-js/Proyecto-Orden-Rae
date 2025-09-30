@@ -76,6 +76,7 @@
                     <a href="{{ route('promociones') }}" class="promociones" aria-label="Ver promociones">PROMOCIONES</a>
                     <a href="{{ route('contacto') }}" class="contacto" aria-label="Contactar con nosotros">CONTACTO</a>
                     <a href="{{ route('cotiza') }}" class="boton_rojo" aria-label="Cotiza aquí">COTICE AQUÍ</a>
+
                 </nav>
             </div>
         </section>                        
@@ -170,9 +171,9 @@
                 <img src="{{ asset('Img/order_rae.png') }}" alt="ORDER R.A.E" class="h-12 w-auto">
             </div>
             <div class="mb-6 space-x-4 text-base">
-                <a href="#" class="text-gray-700 hover:text-black">Quiénes somos</a> |
-                <a href="#" class="text-gray-700 hover:text-black">Términos y condiciones</a> |
-                <a href="#" class="text-gray-700 hover:text-black">Preguntas Frecuentes</a>
+                <a href="{{ route('quienes.somos') }}" class="text-gray-700 hover:text-black">Quiénes somos</a> |
+                <a href="{{ route('terminoscondiciones') }}" class="text-gray-700 hover:text-black">Terminos y  condiciones </a> |
+                <a href="{{ route('preguntasfrecuentes') }}" class="text-gray-700 hover:text-black">preguntas frecuentes</a>
             </div>
             <div class="mb-6 space-x-4 text-base">
                 <a href="#" class="text-gray-700 hover:text-black">Garantía</a> |
