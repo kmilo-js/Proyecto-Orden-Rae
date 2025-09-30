@@ -10,33 +10,13 @@
             @csrf
 
             <div>
-                <x-label for="Nombres" value="{{ __('Nombre') }}" />
-                <x-input id="Nombres" class="block mt-1 w-full" type="text" name="Nombres" :value="old('Nombres')" required autofocus autocomplete="Nombres" />
-            </div>
-
-            <div>
-                <x-label for="Apellidos" value="{{ __('Apellidos') }}" />
-                <x-input id="Apellidos" class="block mt-1 w-full" type="text" name="Apellidos" :value="old('Apellidos')" required autocomplete="Apellidos" />
-            </div>
-
-            <div>
-                <x-label for="Document" value="{{ __('Documento') }}" />
-                <x-input id="Document" class="block mt-1 w-full" type="text" name="Document" :value="old('Document')" required autocomplete="Document" />
-            </div>
-
-            <div>
-                <x-label for="Telefono" value="{{ __('Teléfono') }}" />
-                <x-input id="Telefono" class="block mt-1 w-full" type="text" name="Telefono" :value="old('Telefono')" required autocomplete="Telefono" />
-            </div>
-
-            <div>
-                <x-label for="Genero" value="{{ __('Género') }}" />
-                <x-input id="Genero" class="block mt-1 w-full" type="text" name="Genero" :value="old('Genero')" required autocomplete="Genero" />
+                <x-label for="name" value="{{ __('Nombre') }}" />
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="Nombres" />
             </div>
 
             <div class="mt-4">
-                <x-label for="Correo_usuario" value="{{ __('Email') }}" />
-                <x-input id="Correo_usuario" class="block mt-1 w-full" type="email" name="Correo_usuario" :value="old('Correo_usuario')" required autocomplete="Correo_usuario" />
+                <x-label for="email" value="{{ __('Email') }}" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="Correo_usuario" />
             </div>
 
             <div class="mt-4">
