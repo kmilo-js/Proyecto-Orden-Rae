@@ -2,7 +2,7 @@
 
 /* General de botones */
 .dt-button {
-    background-color: #2563eb; 
+    background-color: #efe7dd; 
     margin-left: 10px !important;
     border-radius: 20px !important;
     padding: 10px 30px 10px !important;
@@ -44,10 +44,10 @@
 }
 
 .buttons-print {
-    background-color: #4f46e5; /* indigo */
+    background-color:#7A4B32; 
 }
 .buttons-print:hover {
-    background-color: #4338ca;
+    background-color: #7A4B32;
 }
 
 #producto_filter input {

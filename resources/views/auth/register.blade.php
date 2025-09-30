@@ -10,13 +10,33 @@
             @csrf
 
             <div>
-                <x-label for="name" value="{{ __('Nombre') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-label for="Nombres" value="{{ __('Nombre') }}" />
+                <x-input id="Nombres" class="block mt-1 w-full" type="text" name="Nombres" :value="old('Nombres')" required autofocus autocomplete="Nombres" />
+            </div>
+
+            <div>
+                <x-label for="Apellidos" value="{{ __('Apellidos') }}" />
+                <x-input id="Apellidos" class="block mt-1 w-full" type="text" name="Apellidos" :value="old('Apellidos')" required autocomplete="Apellidos" />
+            </div>
+
+            <div>
+                <x-label for="Document" value="{{ __('Documento') }}" />
+                <x-input id="Document" class="block mt-1 w-full" type="text" name="Document" :value="old('Document')" required autocomplete="Document" />
+            </div>
+
+            <div>
+                <x-label for="Telefono" value="{{ __('Teléfono') }}" />
+                <x-input id="Telefono" class="block mt-1 w-full" type="text" name="Telefono" :value="old('Telefono')" required autocomplete="Telefono" />
+            </div>
+
+            <div>
+                <x-label for="Genero" value="{{ __('Género') }}" />
+                <x-input id="Genero" class="block mt-1 w-full" type="text" name="Genero" :value="old('Genero')" required autocomplete="Genero" />
             </div>
 
             <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                <x-label for="Correo_usuario" value="{{ __('Email') }}" />
+                <x-input id="Correo_usuario" class="block mt-1 w-full" type="email" name="Correo_usuario" :value="old('Correo_usuario')" required autocomplete="Correo_usuario" />
             </div>
 
             <div class="mt-4">
@@ -25,7 +45,7 @@
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirmar contrasela') }}" />
+                <x-label for="password_confirmation" value="{{ __('Confirmar contraseña') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
@@ -37,8 +57,8 @@
 
                             <div class="ms-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#efe7dd]">'.__('Terms of Service').'</a>',
+                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#efe7dd]">'.__('Privacy Policy').'</a>',
                                 ]) !!}
                             </div>
                         </div>
@@ -46,8 +66,8 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <div class="flex items-center justify-center mt-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#efe7dd]" href="{{ route('login') }}">
                     {{ __('¿Ya estás registrado?') }}
                 </a>
 

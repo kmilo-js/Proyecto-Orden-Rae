@@ -54,7 +54,7 @@
             <div>
                 <table id="producto" class="w-full text-base border text-center text-gray-500 dark:text-gray-700">
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                        <tr class="bg-white border-b dark:bg-[#efe7dd] text-black dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
                             <th>Codigo</th>
                             <th>Referencia</th>

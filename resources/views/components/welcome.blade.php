@@ -1,4 +1,4 @@
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+<div class=" p-6 lg:p-8 bg-[#efe7dd] border-b border-gray-200 ">
     <x-application-logo class="block h-52 w-auto mx-auto rounded-full" />
 
     <h1 class="mt-8 text-2xl md:text-3xl font-semibold text-gray-800 text-center">
@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div class="bg-gray-50 grid grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:p-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 lg:p-8">
     <div>
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="size-6 stroke-gray-400">
