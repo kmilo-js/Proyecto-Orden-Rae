@@ -12,7 +12,7 @@
             @foreach($productos as $producto)
                 <option value="{{ $producto->ID_PRODUCTO }}" 
                     {{ (old('ID_PRODUCTO', $inventario->ID_PRODUCTO ?? '') == $producto->ID_PRODUCTO) ? 'selected' : '' }}>
-                    {{ $producto->Codigo_producto }} - {{ $producto->Referencia_producto }}
+                    {{ $producto->Referencia_producto }}
                 </option>
             @endforeach
         </select>
@@ -24,7 +24,7 @@
     <!-- Cantidad -->
     <div>
         <label class="block text-sm font-medium mb-1">Cantidad de producto *</label>
-        <input type="number" name="Cantidad" value="{{ old('Cantidad', $inventario->Cantidad ?? '') }}"class="w-full border rounded px-3 py-2" min="0" required>
+        <input type="number" name="Cantidad" value="{{ old('Cantidad', $inventario->Cantidad ?? '') }}" class="w-full border rounded px-3 py-2" min="0" required>
         @error('Cantidad')
             <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
         @enderror
@@ -38,7 +38,7 @@
             @foreach ($usuarios as $usuario)
                 <option value="{{ $usuario->ID_USUARIO }}" 
                         {{ (old('usuarios_id', $inventario->usuarios_id ?? '') == $usuario->ID_USUARIO) ? 'selected' : '' }}>
-                    [{{ $usuario->ID_USUARIO }}] - {{ $usuario->Nombres }} {{ $usuario->Apellidos }}
+                    {{ $usuario->Nombres }} {{ $usuario->Apellidos }}
                 </option>
             @endforeach
         </select>

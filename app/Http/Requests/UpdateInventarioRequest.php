@@ -15,7 +15,7 @@ class UpdateInventarioRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'Cantidad_producto' => 'required|integer|min:0',
+            'Cantidad' => 'required|integer|min:0',
             'usuarios_id' => 'required|integer|exists:usuarios,ID_USUARIO',
             'ID_PRODUCTO' => 'required|integer|exists:producto,ID_PRODUCTO',
         ];

@@ -7,15 +7,7 @@
 
     <div class="overflow-x-auto">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
             <!-- NOTIFICACIONES -->
-            @if(session('Ok'))
-                <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
-                    <p class="font-bold">¡OK!</p>
-                    <p>{{ session('Ok') }}</p>
-                </div>
-            @endif
-
             @if(session('success'))
                 <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md flex justify-between items-start" role="alert">
                     <div>
@@ -56,33 +48,34 @@
                     <thead class="text-base text-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                         <tr class="bg-white border-b dark:bg-[#efe7dd] text-black dark:border-gray-700 border-gray-200">
                             <th class="p-2">ID</th>
+                            <th>Usuario</th>
                             <th>Producto</th>
                             <th>Cantidad</th>
                             <th>Fecha de Creación</th>
                             <th>Fecha de Actualización</th>
-                            <th>Acciones</th>
+                            <th>Botones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($inventario as $items)
                             <tr class="bg-white border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-300">
                                 <td class="p-2">{{ $items->ID_INVENTARIO }}</td>
-                                <td>{{ $items->producto->Referencia_producto ?? 'Sin referencia' }}</td>
+                                <td>{{ $items->usuario->Nombres }} {{ $items->usuario->Apellidos }}</td>
+                                <td>{{ $items->producto->Referencia_producto}}</td>
                                 <td>{{ $items->Cantidad }}</td>
-                                <td>{{ $items->Created_at?->format('d/m/Y H:i') ?? '—' }}</td>
-                                <td>{{ $items->Updated_at?->format('d/m/Y H:i') ?? '—' }}</td>
+                                <td>{{ $items->Created_at}}</td>
+                                <td>{{ $items->Updated_at}}</td>
                                 <td class="px-6 py-4 gap-2 flex justify-center">
                                     <a href="{{ route('inventario.edit', $items) }}"
                                         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
                                         Editar
                                     </a>
                                     <form action="{{ route('inventario.destroy', $items) }}" method="POST"
-                                        class="inline" onsubmit="return confirm('¿Deseas eliminar este registro de inventario?')">
+                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md"
+                                        style="display:inline" onsubmit="return confirm('¿Deseas eliminar este producto?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-md">
-                                            Eliminar
-                                        </button>
+                                        <button type="submit">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>

@@ -7,6 +7,18 @@
 
     <div class="overflow-x-auto">
         <div class="mx-auto sm:px-6 lg:px-8">
+                        <!-- NOTIFICACIONES -->
+            @if(session('success'))
+                <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md flex justify-between items-start" role="alert">
+                    <div>
+                        <p class="font-bold">¡Éxito!</p>
+                        <p>{{ session('success') }}</p>
+                    </div>
+                    <button type="button" class="text-green-500 hover:text-green-700 font-bold text-xl" onclick="this.parentElement.remove()">
+                        ×
+                    </button>
+                </div>
+            @endif
             <!-- Botón y mensaje de éxito (igual que en Usuarios) -->
             <div class="flex justify-end p-2 mr-4">
                 <a href="{{ route('pedido.create') }}" 
@@ -16,13 +28,6 @@
                     </svg>
                     Nuevo Pedido
                 </a>
-
-                @if(session('success'))
-                    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg shadow-md mb-4 flex justify-between items-center">
-                        <span>{{ session('success') }}</span>
-                        <button type="button" class="text-green-500 hover:text-green-700 font-bold" onclick="this.parentElement.remove()">×</button>
-                    </div>
-                @endif
             </div>
 
             <!-- Tabla (igual estructura que Usuarios) -->

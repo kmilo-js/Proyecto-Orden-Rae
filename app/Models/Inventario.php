@@ -54,6 +54,6 @@ class Inventario extends Model
 
 	public function producto()
 	{
-		return $this->hasOne(Producto::class, 'ID_PRODUCTO');
+    	return $this->belongsTo(Producto::class, 'ID_PRODUCTO', 'ID_PRODUCTO');
 	}
 }

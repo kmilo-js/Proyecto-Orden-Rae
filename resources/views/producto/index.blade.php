@@ -9,13 +9,6 @@
         <div class="mx-auto sm:px-6 lg:px-8">
 
             <!-- NOTIFICACIONES -->
-            @if(session('Ok'))
-                <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md" role="alert">
-                    <p class="font-bold">¡OK!</p>
-                    <p>{{ session('Ok') }}</p>
-                </div>
-            @endif
-
             @if(session('success'))
                 <div class="mb-6 max-w-2xl mx-auto bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md flex justify-between items-start" role="alert">
                     <div>
